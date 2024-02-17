@@ -64,16 +64,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\FishingPoleBehavior.cs" />
+    <Compile Include="Assets\Scripts\ShootProjectile.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\GerstnerDisplace.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\MeshContainer.cs" />
+    <Compile Include="Assets\Scripts\FishingBobBehavior.cs" />
     <Compile Include="Assets\Scripts\WaterFloat.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\Water.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\WaterBase.cs" />
+    <Compile Include="Assets\Scripts\DestroyObject.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\PlanarReflection.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\SpecularLighting.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\PlayerBehavior.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\Displace.cs" />
   </ItemGroup>
   <ItemGroup>

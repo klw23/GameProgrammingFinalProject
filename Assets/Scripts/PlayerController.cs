@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5;
+    public float rotationSpeed = 700;
     CharacterController controller;
     Vector3 input, moveDirection;
     // Start is called before the first frame update
@@ -19,12 +20,17 @@ public class PlayerController : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        input = (transform.right * moveHorizontal + transform.forward * moveVertical).normalized; //if not normalized, combining directions/going diagonal is faster 
+        moveDirection = new Vector3(moveHorizontal, 0, moveVertical);
+        moveDirection.Normalize();
 
-        input *= moveSpeed;
+        controller.Move(moveDirection * moveSpeed * Time.deltaTime); //allows us to move the character based on keyboard input
 
-        moveDirection = input;
+        //rotates player to face direction of movement
+        if (moveDirection != Vector3.zero) 
+        {
+            Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
 
-        controller.Move(moveDirection * Time.deltaTime); //allows us to move the character based on keyboard input
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
     }
 }
