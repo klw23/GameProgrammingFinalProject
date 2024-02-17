@@ -17,7 +17,7 @@ public class FishingPoleBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lr.SetPosition(0, transform.GetChild(0).gameObject.transform.position);
+        lr.SetPosition(0, transform.GetChild(0).gameObject.transform.position); //RodEndConnection
         lr.SetPosition(1, bobAnchor.position);
     }
 }
