@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FishingBobBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Transform fishingPole;
+
     void Start()
     {
         
@@ -13,6 +14,6 @@ public class FishingBobBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position = fishingPole.GetChild(0).gameObject.transform.position - new Vector3(0, 0.3f, 0);
     }
 }

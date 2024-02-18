@@ -23,6 +23,10 @@ public class ShootProjectile : MonoBehaviour
 
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             rb.AddForce(transform.GetChild(0).gameObject.transform.forward * projectileSpeed, ForceMode.VelocityChange);
+        } else
+        {
+            // Keep the bob 0.3f below the tip of the fishing pole
+            projectilePrefab.transform.position = transform.GetChild(0).gameObject.transform.position - new Vector3(0, 0.3f, 0);
         }
     }
 
