@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1264693995683834265}
   - component: {fileID: 3470319667290410930}
   - component: {fileID: 5841569685241940110}
+  - component: {fileID: 3990905903425950995}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Fish
@@ -47,7 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bob: {fileID: 0}
-  distanceToCatch: 1
+  distanceToCatch: 2
+  timeToCatch: 1
+  fishValue: 20
   swimSpeed: 2
   swimDuration: 20
   swimHeight: 0.5
@@ -71,10 +74,37 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.04
+  m_Radius: 0.05
   m_Height: 0.8
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &3990905903425950995
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218190604417864007}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &7648926455883770317
 PrefabInstance:
   m_ObjectHideFlags: 0

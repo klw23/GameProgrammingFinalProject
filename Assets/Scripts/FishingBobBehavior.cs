@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FishingBobBehavior : MonoBehaviour
-{
-    public float sphereRadius = 3f;
-    Vector3 startingBobPosition;
+{ 
 
     Rigidbody bobRB;
     void Start()
     {
         bobRB = transform.GetComponent<Rigidbody>();
-        startingBobPosition = transform.position;
+
     }
 
     // Update is called once per frame

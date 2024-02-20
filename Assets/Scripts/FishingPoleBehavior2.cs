@@ -7,11 +7,11 @@ public class FishingPoleBehavior2 : MonoBehaviour
 {
     public static bool reeledIn;
     public static bool stayLocked;
-    public static float reelInSpeed = 3f;
 
     public GameObject fishingBob;
     public GameObject player;
     public float projectileSpeed = 10f;
+    public float reelInSpeed = 3f;
 
     Vector3 startingBobPosition;
 

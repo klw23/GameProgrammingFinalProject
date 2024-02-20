@@ -5,13 +5,20 @@ public class FishMovement : MonoBehaviour
 {
     public GameObject bob;
     public float distanceToCatch = 1f;
+    public float timeToCatch = 1f;
+    public int fishValue = 20;
+
+    // Swim
     public float swimSpeed = 2f; 
     public float swimDuration = 20f; 
     public float swimHeight = 0.5f; 
     public float swimFrequency = 2f;
-    
-    private float swimTimer = 0f;
-    private Vector3 startPos;
+   
+    float swimTimer = 0f;
+    bool catchFish = false;
+
+    Vector3 startPos;
+    float countDown;
 
     void Start()
     {
@@ -21,6 +28,25 @@ public class FishMovement : MonoBehaviour
     void Update()
     {
         Swim();
+
+        if (catchFish && countDown > 0)
+        {
+            countDown -= Time.deltaTime;
+
+            if(PoleBehavior.isReeledIn)
+            {
+                Destroy(gameObject);
+                LevelManagerBehavior.currentScore += fishValue;
+                countDown = 0;
+                catchFish = false;
+            }
+        } 
+        else if (catchFish && !PoleBehavior.isReeledIn && countDown <= 0)
+        {
+            catchFish = false;
+            transform.LookAt(Vector3.forward);
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + distanceToCatch * 1.5f);
+        }
     }
 
     private void Swim()
@@ -50,12 +76,9 @@ public class FishMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(FishingPoleBehavior2.reeledIn)
-        {
-            Destroy(gameObject);
-        }
+        countDown = timeToCatch;
+        catchFish = true;
     }
-
 }
