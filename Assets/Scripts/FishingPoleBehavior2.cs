@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
+// DEPRECATED (IS NOW POLEBEHAVIOR) KEPING FOR REFERENCE :)
 public class FishingPoleBehavior2 : MonoBehaviour
 {
     public static bool reeledIn;
