@@ -12,7 +12,6 @@ public class FishMovement : MonoBehaviour
     
     private float swimTimer = 0f;
     private Vector3 startPos;
-    bool captured = false;
 
     void Start()
     {
@@ -50,15 +49,6 @@ public class FishMovement : MonoBehaviour
             transform.Rotate(0f, 180f, 0f); // switch directions
         }
     }
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "Bob")
-    //    {
-    //        Debug.Log("CAptured");
-    //        captured = true;
-    //    }
-    //}
 
     private void OnCollisionStay(Collision collision)
     {

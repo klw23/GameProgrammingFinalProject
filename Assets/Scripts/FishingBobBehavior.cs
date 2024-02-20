@@ -30,11 +30,5 @@ public class FishingBobBehavior : MonoBehaviour
             FishingPoleBehavior2.reeledIn = false;
             FishingPoleBehavior2.stayLocked = false;
         } 
-        //else if (collision.gameObject.tag == "BobBorder") {
-        //    bobRB.velocity = Vector3.zero;
-        //    bobRB.useGravity = false;
-        //    FishingPoleBehavior2.reeledIn = true;
-        //    FishingPoleBehavior2.stayLocked = false;
-        //}
     }
 }

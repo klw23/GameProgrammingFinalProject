@@ -76,12 +76,4 @@ public class FishingPoleBehavior2 : MonoBehaviour
         }
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "Bob")
-    //    {
-    //        bobRB.velocity = Vector3.zero;
-    //        FishingPoleBehavior2.stayLocked = false;
-    //    }
-    //}
 }

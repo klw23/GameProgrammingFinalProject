@@ -60,14 +60,12 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.16f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\FishingPoleBehavior.cs" />
     <Compile Include="Assets\Scripts\DirectionalLightBehavior.cs" />
     <Compile Include="Assets\Scripts\ShootProjectile.cs" />
+    <Compile Include="Assets\Scripts\FishingPoleBehavior2.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\GerstnerDisplace.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\MeshContainer.cs" />
-    <Compile Include="Assets\FishingPoleBehavior2.cs" />
     <Compile Include="Assets\Scripts\FishingBobBehavior.cs" />
-    <Compile Include="Assets\FishingPoleBehaviorSimple.cs" />
     <Compile Include="Assets\Scripts\WaterFloat.cs" />
     <Compile Include="Assets\Scripts\StartGameBehavior.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\Water.cs" />
