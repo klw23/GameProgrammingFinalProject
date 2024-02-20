@@ -20,17 +20,24 @@ public class PlayerController : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        moveDirection = new Vector3(moveHorizontal, 0, moveVertical);
-        moveDirection.Normalize();
-
-        controller.Move(moveDirection * moveSpeed * Time.deltaTime); //allows us to move the character based on keyboard input
-
-        //rotates player to face direction of movement
-        if (moveDirection != Vector3.zero) 
+        if (!FishingPoleBehavior2.reeledIn)
         {
-            Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+            // do not let player move
+        } 
+        else
+        {
+            moveDirection = new Vector3(moveHorizontal, 0, moveVertical);
+            moveDirection.Normalize();
 
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            controller.Move(moveDirection * moveSpeed * Time.deltaTime); //allows us to move the character based on keyboard input
+
+            //rotates player to face direction of movement
+            if (moveDirection != Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            }
         }
     }
 }

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Boat
+  - Water
+  - BobBorder
+  - Bob
+  - Fish
   layers:
   - Default
   - TransparentFX

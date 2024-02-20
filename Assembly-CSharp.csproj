@@ -65,7 +65,9 @@
     <Compile Include="Assets\Scripts\ShootProjectile.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\GerstnerDisplace.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\MeshContainer.cs" />
+    <Compile Include="Assets\FishingPoleBehavior2.cs" />
     <Compile Include="Assets\Scripts\FishingBobBehavior.cs" />
+    <Compile Include="Assets\FishingPoleBehaviorSimple.cs" />
     <Compile Include="Assets\Scripts\WaterFloat.cs" />
     <Compile Include="Assets\Scripts\StartGameBehavior.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\Water.cs" />
