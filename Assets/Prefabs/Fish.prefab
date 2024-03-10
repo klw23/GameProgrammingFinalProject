@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 3470319667290410930}
   - component: {fileID: 5841569685241940110}
   - component: {fileID: 3990905903425950995}
+  - component: {fileID: 8512236302187109245}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1264693995683834265
 Transform:
   m_ObjectHideFlags: 0
@@ -42,7 +43,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 218190604417864007}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7de43bf6f5344f7bbbb427627ec7475, type: 3}
   m_Name: 
@@ -105,6 +106,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8512236302187109245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218190604417864007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f9e311cf260d479f9903fdb3a7bee2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  fishSpeed: 2
+  chaseDistance: 3
+  fishingBob: {fileID: 0}
 --- !u!1001 &7648926455883770317
 PrefabInstance:
   m_ObjectHideFlags: 0
