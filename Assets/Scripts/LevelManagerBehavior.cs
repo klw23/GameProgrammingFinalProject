@@ -7,18 +7,22 @@ using UnityEngine.SceneManagement;
 public class LevelManagerBehavior : MonoBehaviour
 {
     public static int currentScore = 0;
-
     public float levelDuration = 10f;
     public float countdown;
     public Text TimerText;
+    public Text scoreText;
     public Text GameOverText;
     public Slider moneySlider;
     public string nextLevel;
+    public static bool isGameOver = false;
     public int winScore = 100;
 
     void Start()
     {
+        isGameOver = false;
         countdown = levelDuration;
+        currentScore = 0;
+        SetScoreText();
         SetTimerText();
     }
 
@@ -26,36 +30,60 @@ public class LevelManagerBehavior : MonoBehaviour
     void Update()
     {
         moneySlider.value = currentScore;
-        if (countdown > 0)
+        if (!isGameOver)
         {
-            if(currentScore == winScore)
+            if (countdown > 0)
             {
-                LoadNextLevel();
+                if (currentScore == winScore)
+                {
+                    LevelBeat();
+                }
+                countdown -= Time.deltaTime;
             }
-            countdown -= Time.deltaTime;
+            else
+            {
+                countdown = 0.0f;
+                LevelLost();
+            }
         }
-        else
-        {
-            countdown = 0.0f;
-            LevelLost();
-        }
-
+        SetScoreText();
         SetTimerText();
-        
+    }
+
+    public void SetScore(int scoreValue)
+    {
+        currentScore += scoreValue;
+    }
+
+    void SetScoreText()
+    {
+        scoreText.text = currentScore.ToString() + " / " + winScore.ToString();
     }
 
     void SetTimerText()
     {
         TimerText.text = countdown.ToString("f2");
-
     }
 
     void LevelLost()
     {
+        isGameOver = true;
+        GameOverText.text = "LEVEL LOST!";
         GameOverText.gameObject.SetActive(true);
         Invoke("LoadCurrentLevel", 2);
     }
 
+    public void LevelBeat()
+    {
+        isGameOver = true;
+        GameOverText.text = "LEVEL WON!";
+        GameOverText.gameObject.SetActive(true);
+
+        if (!string.IsNullOrEmpty(nextLevel))
+        {
+            Invoke("LoadNextLevel", 2);
+        }
+    }
 
     void LoadCurrentLevel()
     {

@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &191502702 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1947182306289507041, guid: 83394bb92bdb2d74b84a8f8cd46b6a9c, type: 3}
-  m_PrefabInstance: {fileID: 8008253996646319832}
-  m_PrefabAsset: {fileID: 0}
 --- !u!54 &191502703 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 3532910365591222644, guid: 83394bb92bdb2d74b84a8f8cd46b6a9c, type: 3}
@@ -975,7 +970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed12079abba0604f99cf6fde8f2cc15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 191502702}
+  projectile: {fileID: 0}
   projectileSpeed: 5
 --- !u!1 &1838081107
 GameObject:
@@ -1041,7 +1036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: b544816461f324e56a39767fdeb5b114, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: b544816461f324e56a39767fdeb5b114, type: 3}
       propertyPath: m_RootOrder
