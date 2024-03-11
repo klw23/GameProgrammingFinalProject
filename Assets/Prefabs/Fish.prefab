@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1264693995683834265
 Transform:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   fishSpeed: 2
-  chaseDistance: 3
+  chaseDistance: 4
   fishingBob: {fileID: 0}
 --- !u!1001 &7648926455883770317
 PrefabInstance:

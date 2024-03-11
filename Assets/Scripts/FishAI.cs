@@ -21,11 +21,14 @@ public class FishAI : MonoBehaviour
     public GameObject fishingBob;
     float distanceToFishingBob;
     public static int numberOfFishSpawned = 0;
+    public int fishValue = 20;
 
 
+   
     void Start()
     { 
         wanderPoints = GameObject.FindGameObjectsWithTag("WanderPoint");
+        fishingBob = GameObject.FindGameObjectWithTag("Bob");
         ShuffleWanderPoints();
         numberOfFishSpawned++;
         Initialize();
@@ -34,7 +37,10 @@ public class FishAI : MonoBehaviour
     void Update()
     {
         distanceToFishingBob = Vector3.Distance(transform.position, fishingBob.transform.position);
-        switch(currentState)
+     
+
+
+        switch (currentState)
         {
             case FSMStates.Swim:
                 UpdateSwimState();
@@ -112,5 +118,19 @@ public class FishAI : MonoBehaviour
     void UpdateCaughtState()
     {
         print("Caught!");
+        numberOfFishSpawned--; // decrease number of fish spawned
+
+        // fish value is currently 20, add this to the level manager to update points
+
+        Destroy(gameObject); // temporary, it should follow the pole behavior of having the user click fire within a timeframe
+        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Bob")
+        {
+            currentState = FSMStates.Caught;
+        }
     }
 }

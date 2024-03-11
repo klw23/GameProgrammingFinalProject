@@ -9,6 +9,10 @@ public class StartGameBehavior : MonoBehaviour
     public Text text1;
     public Text text2;
     public Text text3;
+    public Text text4;
+    public Text text5;
+    public Image fish;
+
     public string nextLevel;
 
     void Start()
@@ -39,7 +43,17 @@ public class StartGameBehavior : MonoBehaviour
     {
         text2.gameObject.SetActive(false);
         text3.gameObject.SetActive(true);
+        Invoke("ShowTextFour", 7);
+    }
+
+    void ShowTextFour()
+    {
+        text3.gameObject.SetActive(false);
+        text4.gameObject.SetActive(true);
+        text5.gameObject.SetActive(true);
+        fish.gameObject.SetActive(true);
         Invoke("LoadNextLevel", 7);
+
     }
 
     void LoadNextLevel()
