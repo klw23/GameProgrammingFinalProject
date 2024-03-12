@@ -20,6 +20,9 @@ public class FishMovement : MonoBehaviour
     Vector3 startPos;
     float countDown;
 
+
+    public GameObject splashEffectPrefab;
+
     void Start()
     {
         startPos = transform.position;
@@ -80,5 +83,6 @@ public class FishMovement : MonoBehaviour
     {
         countDown = timeToCatch;
         catchFish = true;
+        Instantiate(splashEffectPrefab, transform.position, Quaternion.identity);
     }
 }
