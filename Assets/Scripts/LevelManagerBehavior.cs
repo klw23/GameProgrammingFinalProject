@@ -97,6 +97,11 @@ public class LevelManagerBehavior : MonoBehaviour
             SceneManager.LoadScene(nextLevel);
         }
     }
+    public void IncreaseTime(int amount) 
+    {
+        countdown += amount; 
+        SetTimerText(); 
+    }
 
 
 }
