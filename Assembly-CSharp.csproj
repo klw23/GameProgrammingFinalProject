@@ -62,7 +62,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\DirectionalLightBehavior.cs" />
     <Compile Include="Assets\Scripts\ShootProjectile.cs" />
-    <Compile Include="Assets\Scripts\FishingPoleBehavior2.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\GerstnerDisplace.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\MeshContainer.cs" />
     <Compile Include="Assets\Scripts\FishingBobBehavior.cs" />
@@ -70,16 +69,19 @@
     <Compile Include="Assets\Scripts\StartGameBehavior.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\Water.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
+    <Compile Include="Assets\SceneRelatedAssets\Free HDR Skyboxes Pack\Example Scenes\Script\RotateCamera.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\WaterBase.cs" />
+    <Compile Include="Assets\OldScripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\CameraBehavior.cs" />
     <Compile Include="Assets\Scripts\DestroyObject.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\PlanarReflection.cs" />
+    <Compile Include="Assets\Scripts\PlayerAndRodController.cs" />
     <Compile Include="Assets\Scripts\FishBehavior.cs" />
+    <Compile Include="Assets\Scripts\MouseLook.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\SpecularLighting.cs" />
     <Compile Include="Assets\Scripts\LevelManagerBehavior.cs" />
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\OldScripts\FishingPoleBehavior2.cs" />
     <Compile Include="Assets\Scripts\PoleBehavior.cs" />
-    <Compile Include="Assets\Free HDR Skyboxes Pack\Example Scenes\Script\RotateCamera.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\Displace.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -106,7 +108,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularSmooth.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\Free HDR Skyboxes Pack\ReadMe.txt" />
+    <None Include="Assets\SceneRelatedAssets\Free HDR Skyboxes Pack\ReadMe.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\DO_NOT_WORK_IN_VR.txt" />
     <None Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
