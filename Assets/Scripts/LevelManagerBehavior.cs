@@ -17,6 +17,11 @@ public class LevelManagerBehavior : MonoBehaviour
     public static bool isGameOver = false;
     public int winScore = 100;
 
+
+    public AudioClip gameOverSFX;
+    public AudioClip gameWonSFX;
+    
+
     void Start()
     {
         isGameOver = false;
@@ -70,6 +75,10 @@ public class LevelManagerBehavior : MonoBehaviour
         isGameOver = true;
         GameOverText.text = "LEVEL LOST!";
         GameOverText.gameObject.SetActive(true);
+
+        Camera.main.GetComponent<AudioSource>().pitch = 1;
+        AudioSource.PlayClipAtPoint(gameOverSFX, Camera.main.transform.position);
+
         Invoke("LoadCurrentLevel", 2);
     }
 
@@ -82,6 +91,12 @@ public class LevelManagerBehavior : MonoBehaviour
         if (!string.IsNullOrEmpty(nextLevel))
         {
             Invoke("LoadNextLevel", 2);
+        }
+
+        else 
+        {
+            Camera.main.GetComponent<AudioSource>();
+            AudioSource.PlayClipAtPoint(gameWonSFX, Camera.main.transform.position);
         }
     }
 
@@ -96,6 +111,11 @@ public class LevelManagerBehavior : MonoBehaviour
         {
             SceneManager.LoadScene(nextLevel);
         }
+    }
+    public void IncreaseTime(int amount) 
+    {
+        countdown += amount; 
+        SetTimerText(); 
     }
 
 
