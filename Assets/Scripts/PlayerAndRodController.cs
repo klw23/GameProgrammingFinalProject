@@ -5,13 +5,15 @@ using UnityEngine;
 public class PlayerAndRodController : MonoBehaviour
 {
     public float moveSpeed = 5;
-    public float rotationSpeed = 700;
+    public float rotationSpeed = 500;
     CharacterController controller;
     Vector3 input, moveDirection;
-    // Start is called before the first frame update
+    Rigidbody player;
+    
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -23,6 +25,9 @@ public class PlayerAndRodController : MonoBehaviour
         if (!PoleBehavior.isReeledIn)
         {
             // do not let player move
+           
+            player.velocity = Vector3.zero;
+            player.angularVelocity = Vector3.zero;
         }
         else
         {
