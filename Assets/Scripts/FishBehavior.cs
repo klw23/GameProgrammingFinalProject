@@ -85,4 +85,6 @@ public class FishMovement : MonoBehaviour
         catchFish = true;
         Instantiate(splashEffectPrefab, transform.position, Quaternion.identity);
     }
+
+    
 }

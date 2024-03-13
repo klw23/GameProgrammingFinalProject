@@ -1343,6 +1343,8 @@ MonoBehaviour:
   moneySlider: {fileID: 1322726000}
   nextLevel: 
   winScore: 100
+  gameOverSFX: {fileID: 0}
+  gameWonSFX: {fileID: 0}
 --- !u!4 &1321157380
 Transform:
   m_ObjectHideFlags: 0
