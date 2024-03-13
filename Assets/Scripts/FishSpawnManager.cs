@@ -17,7 +17,7 @@ public class FishSpawnManager : MonoBehaviour
     void Start()
     {
         fishParent = GameObject.FindGameObjectWithTag("FishParent");
-        InvokeRepeating("SpawnFishNearPlayer", 3f, 3f); // 0f delay before first spawn, then every 3 seconds
+        InvokeRepeating("SpawnFishNearPlayer", 3f, 3f); // 3f delay before first spawn, then every 3 seconds
     }
 
   
