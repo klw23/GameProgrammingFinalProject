@@ -9,6 +9,9 @@ TagManager:
   - BobBorder
   - Bob
   - Fish
+  - WanderPoint
+  - FishParent
+  - Loot
   layers:
   - Default
   - TransparentFX
