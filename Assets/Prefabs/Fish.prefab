@@ -98,11 +98,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  fishSpeed: 2
+  fishSpeed: 3
   chaseDistance: 2
   fishingBob: {fileID: 0}
   fishValue: 20
   timeToCatch: 0.5
+  splashEffectPrefab: {fileID: 4891976383728537193, guid: ff1b41ede4e1f4a6fb6f17c6a985c0cb, type: 3}
 --- !u!1001 &7648926455883770317
 PrefabInstance:
   m_ObjectHideFlags: 0

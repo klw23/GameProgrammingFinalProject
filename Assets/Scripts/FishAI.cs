@@ -40,8 +40,6 @@ public class FishAI : MonoBehaviour
     {
         distanceToFishingBob = Vector3.Distance(transform.position, fishingBob.transform.position);
 
-
-
         switch (currentState)
         {
             case FSMStates.Swim:
@@ -88,7 +86,7 @@ public class FishAI : MonoBehaviour
 
     void UpdateSwimState()
     {
-        print("Swimming!");
+        //print("Swimming!");
         if (Vector3.Distance(transform.position, nextDestination) < .5)
         {
             FindNextPoint();
@@ -105,7 +103,7 @@ public class FishAI : MonoBehaviour
 
     void UpdateChaseState()
     {
-        print("Chasing!");
+        //print("Chasing!");
         if (distanceToFishingBob <= chaseDistance) // if we are still within distance to fishing bob
         {
             FaceTarget(fishingBob.transform.position);
@@ -130,7 +128,7 @@ public class FishAI : MonoBehaviour
 
             if (PoleBehavior.isReeledIn)
             {
-                // TODO fish value is currently 20, add this to the level manager to update points
+                LevelManagerBehavior.currentScore += fishValue;
                 countDown = 0;
                 poleOccupied = false;
                 numberOfFishSpawned--; // decrease number of fish spawned

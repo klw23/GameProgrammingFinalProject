@@ -55,11 +55,6 @@ public class LevelManagerBehavior : MonoBehaviour
         SetTimerText();
     }
 
-    public void SetScore(int scoreValue)
-    {
-        currentScore += scoreValue;
-    }
-
     void SetScoreText()
     {
         scoreText.text = currentScore.ToString() + " / " + winScore.ToString();
