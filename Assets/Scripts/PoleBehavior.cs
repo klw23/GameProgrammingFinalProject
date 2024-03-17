@@ -5,7 +5,7 @@ using UnityEngine;
 public class PoleBehavior : MonoBehaviour
 {
     public static bool isReeledIn;
-
+   
     public GameObject bob;
     public GameObject player;
     public float projectileSpeed = 10f;
@@ -19,11 +19,14 @@ public class PoleBehavior : MonoBehaviour
         isReeledIn = true;
         lr = transform.GetComponent<LineRenderer>();
         bobRB = bob.GetComponent<Rigidbody>();
+        UpdateBobStartingPos();
 
-        bob.transform.position = transform.GetChild(0).transform.position + Vector3.down + player.transform.forward * 0.5f;
+    }
+    void UpdateBobStartingPos()
+    {
+        bobStartingPos = transform.GetChild(0).transform.position + Vector3.down + player.transform.forward * 0.5f;
     }
 
-    
     void Update()
     {
         // Connect the pole and the bob with a line 
@@ -51,6 +54,9 @@ public class PoleBehavior : MonoBehaviour
     void reelBob()
     {
         isReeledIn = true;
+        //bobRB.velocity = Vector3.zero; // Reset velocity
+        //bobRB.angularVelocity = Vector3.zero; // Reset angular velocity
+        //bobRB.useGravity = false; // Optionally turn off gravity
         bob.transform.position = bobStartingPos;
     }
 }

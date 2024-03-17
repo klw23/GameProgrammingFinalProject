@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1264693995683834265}
-  - component: {fileID: 3470319667290410930}
   - component: {fileID: 5841569685241940110}
   - component: {fileID: 3990905903425950995}
+  - component: {fileID: 378899414605834103}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Fish
@@ -29,32 +29,12 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3.21, z: 0}
-  m_LocalScale: {x: 5, y: 2, z: 2}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6926237774022810638}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3470319667290410930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 218190604417864007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7de43bf6f5344f7bbbb427627ec7475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bob: {fileID: 0}
-  distanceToCatch: 2
-  timeToCatch: 1
-  fishValue: 20
-  swimSpeed: 2
-  swimDuration: 20
-  swimHeight: 0.5
-  swimFrequency: 2
 --- !u!136 &5841569685241940110
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -105,6 +85,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &378899414605834103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218190604417864007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40af7069e4fae41d69447b02034c3e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  fishSpeed: 3
+  chaseDistance: 2
+  fishingBob: {fileID: 0}
+  fishValue: 20
+  timeToCatch: 0.5
+  splashEffectPrefab: {fileID: 4891976383728537193, guid: ff1b41ede4e1f4a6fb6f17c6a985c0cb, type: 3}
 --- !u!1001 &7648926455883770317
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -40,6 +40,7 @@ public class FishMovement : MonoBehaviour
             {
                 Destroy(gameObject);
                 LevelManagerBehavior.currentScore += fishValue;
+                print(LevelManagerBehavior.currentScore);
                 countDown = 0;
                 catchFish = false;
             }
