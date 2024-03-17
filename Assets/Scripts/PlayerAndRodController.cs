@@ -15,7 +15,17 @@ public class PlayerAndRodController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>();
     }
-
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        // Check if the collision is with the boat
+        if (hit.gameObject.tag == "Boat") // Make sure your boat has the tag "Boat"
+        {
+            // Here you can handle the collision
+            // For example, stop the player's movement or push them back slightly
+            // Note: The CharacterController's Move method already handles basic collision responses
+            Debug.Log("Collided with the boat");
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -37,5 +47,7 @@ public class PlayerAndRodController : MonoBehaviour
             controller.Move(moveDirection * moveSpeed * Time.deltaTime); //allows us to move the character based on keyboard input
 
         }
+
+
     }
 }
