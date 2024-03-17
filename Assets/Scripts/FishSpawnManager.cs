@@ -41,7 +41,6 @@ public class FishSpawnManager : MonoBehaviour
             }
 
             totalFishSpawned++;
-            FishAI.numberOfFishSpawned++;
         }
 
 
