@@ -123,6 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &184651081
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,11 +176,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 7426413120757290220}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184651081}
+=======
+--- !u!224 &184651082 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5137001930724761272, guid: 27fe59716e27a4b1784563cef618222c, type: 3}
+  m_PrefabInstance: {fileID: 7426413120757290220}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &184651084 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1906697315152937843, guid: 27fe59716e27a4b1784563cef618222c, type: 3}
+  m_PrefabInstance: {fileID: 7426413120757290220}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+>>>>>>> 17f02f4067146ca10e4a3bd3030b67447c649a88
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
@@ -202,6 +217,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Purple Royale - 20 Dollars
+=======
+>>>>>>> 17f02f4067146ca10e4a3bd3030b67447c649a88
 --- !u!1 &217361598
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +540,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: b999262030b2c4adabda1d2dbbbaa68e, type: 3}
+=======
+  m_Sprite: {fileID: 21300000, guid: 62e1446bfcced49cd9851dbafd9e8d7f, type: 3}
+>>>>>>> 17f02f4067146ca10e4a3bd3030b67447c649a88
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -726,9 +747,15 @@ MonoBehaviour:
   text2: {fileID: 1732457257}
   text3: {fileID: 1024244786}
   purpleFish: {fileID: 918101705}
+<<<<<<< HEAD
   text4: {fileID: 919450120}
   text5: {fileID: 184651084}
   nextLevel: 1 - LevelOneThirdPersonScene2
+=======
+  text4: {fileID: 184651084}
+  text5: {fileID: 919450120}
+  nextLevel: 1-LevelOneScene
+>>>>>>> 17f02f4067146ca10e4a3bd3030b67447c649a88
 --- !u!4 &1297353901
 Transform:
   m_ObjectHideFlags: 0

@@ -102,7 +102,11 @@ MonoBehaviour:
   chaseDistance: 2.5
   fishingBob: {fileID: 0}
   fishValue: 20
+<<<<<<< HEAD
   timeToCatch: 1
+=======
+  timeToCatch: 0.5
+>>>>>>> 17f02f4067146ca10e4a3bd3030b67447c649a88
 --- !u!1001 &7648926455883770317
 PrefabInstance:
   m_ObjectHideFlags: 0
