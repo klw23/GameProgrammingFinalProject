@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{0BFF2670-B300-6418-86FB-8F64CD93628A}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LevelManagerBehavior.cs">
+    <Files>
+      <File FileName="Assets/Scripts/CameraBehavior.cs" Line="44" Column="10" />
+      <File FileName="Assets/DirectionalLightBehavior.cs" Line="13" Column="36" />
+      <File FileName="Assets/Scripts/StartGameBehavior.cs" Line="45" Column="3" />
+      <File FileName="Assets/FishBehavior.cs" Line="28" Column="56" />
+      <File FileName="Assets/Scripts/LevelManagerBehavior.cs" Line="37" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="24ef07c9-dc15-40cf-a2a2-6c7e984b00a1" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

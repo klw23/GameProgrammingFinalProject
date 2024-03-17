@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   fishSpeed: 2
-  chaseDistance: 2
+  chaseDistance: 3
   fishingBob: {fileID: 0}
   fishValue: 20
   timeToCatch: 0.5
