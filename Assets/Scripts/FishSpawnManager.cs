@@ -21,7 +21,6 @@ public class FishSpawnManager : MonoBehaviour
     }
 
 
-
     void SpawnFishNearPlayer()
     {
 
@@ -41,7 +40,6 @@ public class FishSpawnManager : MonoBehaviour
             }
 
             totalFishSpawned++;
-            FishAI.numberOfFishSpawned++;
         }
 
 

@@ -28,7 +28,7 @@ public class FishAI : MonoBehaviour
     public static bool poleOccupied = false;
 
     void Start()
-    {
+    { 
         wanderPoints = GameObject.FindGameObjectsWithTag("WanderPoint");
         fishingBob = GameObject.FindGameObjectWithTag("Bob");
         ShuffleWanderPoints();
@@ -39,8 +39,6 @@ public class FishAI : MonoBehaviour
     void Update()
     {
         distanceToFishingBob = Vector3.Distance(transform.position, fishingBob.transform.position);
-
-
 
         switch (currentState)
         {
@@ -89,6 +87,7 @@ public class FishAI : MonoBehaviour
     void UpdateSwimState()
     {
         print("Swimming!");
+      
         if (Vector3.Distance(transform.position, nextDestination) < .5)
         {
             FindNextPoint();

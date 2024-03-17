@@ -99,10 +99,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   fishSpeed: 2
-  chaseDistance: 2
+  chaseDistance: 2.5
   fishingBob: {fileID: 0}
   fishValue: 20
-  timeToCatch: 3
+  timeToCatch: 1
 --- !u!1001 &7648926455883770317
 PrefabInstance:
   m_ObjectHideFlags: 0

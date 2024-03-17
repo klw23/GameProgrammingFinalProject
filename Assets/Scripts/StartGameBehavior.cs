@@ -9,6 +9,9 @@ public class StartGameBehavior : MonoBehaviour
     public Text text1;
     public Text text2;
     public Text text3;
+    public Image purpleFish;
+    public Text text4;
+    public Text text5;
     public string nextLevel;
 
     void Start()
@@ -39,6 +42,15 @@ public class StartGameBehavior : MonoBehaviour
     {
         text2.gameObject.SetActive(false);
         text3.gameObject.SetActive(true);
+        Invoke("ShowFishInventory", 7);
+    }
+
+    void ShowFishInventory()
+    {
+        text3.gameObject.SetActive(false);
+        text4.gameObject.SetActive(true);
+        text5.gameObject.SetActive(true);
+        purpleFish.gameObject.SetActive(true);
         Invoke("LoadNextLevel", 7);
     }
 
