@@ -32,14 +32,15 @@ public class LootSpawner : MonoBehaviour
                 Collider boatCollider = actualBoatObject.GetComponent<Collider>();
                 WaterFloat boatWaterFloat = boatPrefab.GetComponent<WaterFloat>();
 
-                //if (boatCollider != null)
-                //{
+                if (boatCollider != null)
+                {
+                    float padding = 3.0f;
                     // Use the collider's bounds to determine the spawn area
-                    float spawnX = Random.Range(boatCollider.bounds.min.x, boatCollider.bounds.max.x);
+                    float spawnX = Random.Range(boatCollider.bounds.min.x + padding, boatCollider.bounds.max.x - padding);
                     float boatCenterY = boatCollider.bounds.center.y;
                     float spawnYOffset = Random.Range(-boatWaterFloat.MovingDistances.y, boatWaterFloat.MovingDistances.y);
                     float spawnY = boatCenterY + spawnYOffset;
-                    float spawnZ = Random.Range(boatCollider.bounds.min.z, boatCollider.bounds.max.z);
+                    float spawnZ = Random.Range(boatCollider.bounds.min.z + padding, boatCollider.bounds.max.z - padding);
 
                     Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
 
@@ -51,7 +52,7 @@ public class LootSpawner : MonoBehaviour
                     currentLootCount++;
 
                     AudioSource.PlayClipAtPoint(lootSFX, spawnPosition);
-                //}
+                }
             }
         }
     }
