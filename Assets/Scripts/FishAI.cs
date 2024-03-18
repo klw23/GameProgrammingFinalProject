@@ -23,6 +23,8 @@ public class FishAI : MonoBehaviour
     public static int numberOfFishSpawned = 0;
     public int fishValue = 20;
 
+    public AudioClip yaySFX;
+
     float countDown;
     public float timeToCatch = 1f;
     public static bool poleOccupied = false;
@@ -145,6 +147,7 @@ public class FishAI : MonoBehaviour
 
             if (PoleBehavior.isReeledIn)
             {
+                AudioSource.PlayClipAtPoint(yaySFX, transform.position);
                 LevelManagerBehavior.currentScore += fishValue;
                 countDown = 0;
                 poleOccupied = false;
