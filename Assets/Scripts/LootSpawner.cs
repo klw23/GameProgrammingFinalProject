@@ -13,10 +13,6 @@ public class LootSpawner : MonoBehaviour
     private int maxLoot = 3; // max number of loot
     private int currentLootCount = 0; // current number of loot items
 
-    // Spawn boundaries
-    public float yMin = 2f;
-    public float yMax = 3f;
-
     public AudioClip lootSFX;
 
     void Start()
@@ -31,6 +27,7 @@ public class LootSpawner : MonoBehaviour
         {
             if (boatPrefab != null)
             {
+                Debug.Log("Spawning Loot");
                 Collider boatCollider = boatPrefab.GetComponent<Collider>();
                 WaterFloat boatWaterFloat = boatPrefab.GetComponent<WaterFloat>();
 
@@ -44,6 +41,8 @@ public class LootSpawner : MonoBehaviour
                     float spawnZ = Random.Range(boatCollider.bounds.min.z, boatCollider.bounds.max.z);
 
                     Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
+
+                    Debug.Log($"Loot spawned at: {spawnPosition}");
 
                     GameObject spawnedLoot = Instantiate(lootPrefab, spawnPosition, Quaternion.identity);
                     spawnedLoot.transform.SetParent(transform);
