@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2765894223195575888}
   - component: {fileID: 4480409637086125091}
   - component: {fileID: 4696965979789292299}
+  - component: {fileID: 1148377883267213937}
   m_Layer: 0
   m_Name: Loot(hourglass)
   m_TagString: Loot
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4363084001651438831}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -32.78, y: 3.32, z: 95}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
@@ -124,6 +125,27 @@ MonoBehaviour:
   collectLootSFX: {fileID: 8300000, guid: 7a02d177e71734372bb8c6a42a7e7fe7, type: 3}
   lootSpawner: {fileID: 3767109849033143150, guid: 491da8a7ca2534deba6aba3cdc384339, type: 3}
   player: {fileID: 5116406245236151343, guid: bcc7dca78fc1d6d43a02077d105a7bc4, type: 3}
+--- !u!95 &1148377883267213937
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4363084001651438831}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad71d151801af47cf8d03de5e967562d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &3772636285052397988
 PrefabInstance:
   m_ObjectHideFlags: 0
