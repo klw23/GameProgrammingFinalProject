@@ -13,10 +13,6 @@ public class LootSpawner : MonoBehaviour
     private int maxLoot = 3; // max number of loot
     private int currentLootCount = 0; // current number of loot items
 
-    // Spawn boundaries
-    public float yMin = 2f;
-    public float yMax = 3f;
-
     public AudioClip lootSFX;
 
     void Start()
@@ -31,19 +27,24 @@ public class LootSpawner : MonoBehaviour
         {
             if (boatPrefab != null)
             {
-                Collider boatCollider = boatPrefab.GetComponent<Collider>();
+                Debug.Log("Spawning Loot");
+                GameObject actualBoatObject = boatPrefab.transform.GetChild(0).gameObject;
+                Collider boatCollider = actualBoatObject.GetComponent<Collider>();
                 WaterFloat boatWaterFloat = boatPrefab.GetComponent<WaterFloat>();
 
                 if (boatCollider != null)
                 {
+                    float padding = 3.0f;
                     // Use the collider's bounds to determine the spawn area
-                    float spawnX = Random.Range(boatCollider.bounds.min.x, boatCollider.bounds.max.x);
+                    float spawnX = Random.Range(boatCollider.bounds.min.x + padding, boatCollider.bounds.max.x - padding);
                     float boatCenterY = boatCollider.bounds.center.y;
                     float spawnYOffset = Random.Range(-boatWaterFloat.MovingDistances.y, boatWaterFloat.MovingDistances.y);
                     float spawnY = boatCenterY + spawnYOffset;
-                    float spawnZ = Random.Range(boatCollider.bounds.min.z, boatCollider.bounds.max.z);
+                    float spawnZ = Random.Range(boatCollider.bounds.min.z + padding, boatCollider.bounds.max.z - padding);
 
                     Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
+
+                    Debug.Log($"Loot spawned at: {spawnPosition}");
 
                     GameObject spawnedLoot = Instantiate(lootPrefab, spawnPosition, Quaternion.identity);
                     spawnedLoot.transform.SetParent(transform);
