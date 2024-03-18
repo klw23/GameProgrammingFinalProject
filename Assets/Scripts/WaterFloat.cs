@@ -2,7 +2,7 @@
 
 public class WaterFloat : MonoBehaviour
 {
-    public Vector3 MovingDistances = new Vector3(0.002f, 0.001f, 0f);     //up and down distance of the wave
+    public Vector3 MovingDistances = new Vector3(0.0002f, 0.0000001f, 0f);     //up and down distance of the wave
     public float speed = 1f;                                              //the speed of up and down
 
     public Vector3 WaveRotations;                                         //object side rotations
