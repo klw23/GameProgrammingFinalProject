@@ -8,12 +8,13 @@ public class LootSpawner : MonoBehaviour
     public GameObject lootPrefab; 
 
     public GameObject boatPrefab;
+
     public float spawnTime = 7f; // time between spawns
     private int maxLoot = 3; // max number of loot
     private int currentLootCount = 0; // current number of loot items
 
     // Spawn boundaries
-    public float yMin = 1f;
+    public float yMin = 2f;
     public float yMax = 3f;
 
     public AudioClip lootSFX;
@@ -31,12 +32,15 @@ public class LootSpawner : MonoBehaviour
             if (boatPrefab != null)
             {
                 Collider boatCollider = boatPrefab.GetComponent<Collider>();
+                WaterFloat boatWaterFloat = boatPrefab.GetComponent<WaterFloat>();
 
                 if (boatCollider != null)
                 {
                     // Use the collider's bounds to determine the spawn area
                     float spawnX = Random.Range(boatCollider.bounds.min.x, boatCollider.bounds.max.x);
-                    float spawnY = Random.Range(yMin, yMax); 
+                    float boatCenterY = boatCollider.bounds.center.y;
+                    float spawnYOffset = Random.Range(-boatWaterFloat.MovingDistances.y, boatWaterFloat.MovingDistances.y);
+                    float spawnY = boatCenterY + spawnYOffset;
                     float spawnZ = Random.Range(boatCollider.bounds.min.z, boatCollider.bounds.max.z);
 
                     Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
