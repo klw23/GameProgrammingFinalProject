@@ -22,10 +22,6 @@ public class PoleBehavior : MonoBehaviour
         UpdateBobStartingPos();
 
     }
-    void UpdateBobStartingPos()
-    {
-        bobStartingPos = transform.GetChild(0).transform.position + Vector3.down + player.transform.forward * 0.5f;
-    }
 
     void Update()
     {
@@ -40,7 +36,16 @@ public class PoleBehavior : MonoBehaviour
         else if (Input.GetButtonDown("Fire1") && !isReeledIn)
         {
             reelBob();
+        } 
+        else if (isReeledIn)
+        {
+            UpdateBobStartingPos();
         }
+    }
+    void UpdateBobStartingPos()
+    {
+        bobStartingPos = transform.GetChild(0).transform.position + Vector3.down * 0.3f;
+        bob.transform.position = bobStartingPos;
     }
 
     void castBob()

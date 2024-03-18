@@ -25,8 +25,6 @@ public class FishingBobBehavior : MonoBehaviour
             Debug.Log("Hit Water");
             bobRB.velocity = Vector3.zero;
             bobRB.useGravity = false;
-            FishingPoleBehavior2.reeledIn = false;
-            FishingPoleBehavior2.stayLocked = false;
         } 
     }
 }
