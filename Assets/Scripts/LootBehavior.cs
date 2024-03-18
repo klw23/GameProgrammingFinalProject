@@ -30,6 +30,7 @@ public class LootBehavior : MonoBehaviour
 
             var levelManager = FindObjectOfType<LevelManagerBehavior>();
             levelManager.IncreaseTime(timeAmount);
+            levelManager.ShowAddedTime(timeAmount);
 
             lootSpawner.LootCollected();
             Destroy(gameObject, 0.5f);

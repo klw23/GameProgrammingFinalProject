@@ -12,6 +12,8 @@ public class LevelManagerBehavior : MonoBehaviour
     public Text TimerText;
     public Text scoreText;
     public Text GameOverText;
+
+    public Text addedTimeText;
     public Slider moneySlider;
     public string nextLevel;
     public static bool isGameOver = false;
@@ -65,6 +67,36 @@ public class LevelManagerBehavior : MonoBehaviour
         TimerText.text = countdown.ToString("f2");
     }
 
+    public void ShowAddedTime(int amount)
+    {
+        addedTimeText.text = "+" + amount.ToString() + "SECONDS"; 
+        addedTimeText.gameObject.SetActive(true);
+
+        StartCoroutine(FadeOutAddedTimeText()); // Start the fade out coroutine
+    }
+
+    IEnumerator FadeOutAddedTimeText()
+    {
+        float duration = 2f; // Duration in seconds
+        float startTime = Time.time;
+
+        // Ensure the text is fully opaque at the start
+        Color textColor = addedTimeText.color;
+        textColor.a = 1;
+        addedTimeText.color = textColor;
+
+        // Gradually fade the text
+        while (Time.time < startTime + duration)
+        {
+            // Fade the text based on the elapsed time
+            float t = (Time.time - startTime) / duration;
+            textColor.a = Mathf.Lerp(1, 0, t);
+            addedTimeText.color = textColor;
+            yield return null;
+        }
+
+        addedTimeText.gameObject.SetActive(false); // Hide the text after fading
+    }
     void LevelLost()
     {
         isGameOver = true;
