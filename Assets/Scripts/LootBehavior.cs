@@ -5,7 +5,7 @@ using UnityEngine;
 public class LootBehavior : MonoBehaviour
 {
     public int timeAmount = 5;
-    public AudioClip lootSFX;
+    public AudioClip collectLootSFX;
     public LootSpawner lootSpawner;
 
     public GameObject player;
@@ -16,17 +16,17 @@ public class LootBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    // void Update()
+    // {
         
-    }
+    // }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player") && gameObject.CompareTag("Loot"))
         {
             gameObject.SetActive(false);
-            AudioSource.PlayClipAtPoint(lootSFX, transform.position);
+            AudioSource.PlayClipAtPoint(collectLootSFX, transform.position);
 
             var levelManager = FindObjectOfType<LevelManagerBehavior>();
             levelManager.IncreaseTime(timeAmount);

@@ -27,12 +27,18 @@ public class FishAI : MonoBehaviour
     public float timeToCatch = 1f;
     public static bool poleOccupied = false;
 
+    public GameObject splashEffectPrefab;
+    private GameObject splashEffectInstance;
+
+    private bool splashEffectPlayed;
+
     void Start()
     {
         wanderPoints = GameObject.FindGameObjectsWithTag("WanderPoint");
         fishingBob = GameObject.FindGameObjectWithTag("Bob");
         ShuffleWanderPoints();
         numberOfFishSpawned++;
+        splashEffectPlayed = false;
         Initialize();
     }
 
@@ -124,6 +130,17 @@ public class FishAI : MonoBehaviour
 
         if (countDown > 0)
         {
+
+            if (!splashEffectPlayed)
+            {
+
+                // play particle effect
+                splashEffectInstance = Instantiate(splashEffectPrefab, transform.position, Quaternion.identity, transform);
+                splashEffectPlayed = true;
+                Destroy(splashEffectInstance, 3);
+
+            }
+
             countDown -= Time.deltaTime;
 
             if (PoleBehavior.isReeledIn)
@@ -131,6 +148,8 @@ public class FishAI : MonoBehaviour
                 LevelManagerBehavior.currentScore += fishValue;
                 countDown = 0;
                 poleOccupied = false;
+                // destroy particle effect
+                Destroy(splashEffectInstance, 3);
                 numberOfFishSpawned--; // decrease number of fish spawned
                 Destroy(gameObject);
 
@@ -138,6 +157,7 @@ public class FishAI : MonoBehaviour
             else if (!PoleBehavior.isReeledIn && countDown <= 0)
             {
                 print("unsuccesful catch");
+                Destroy(splashEffectInstance, 3);
                 FindNextPoint();
                 Invoke("KeepPoleOccupied", 3);
                 currentState = FSMStates.Swim; // if the fish was unsuccessfuly caught, have it keep swimming
@@ -146,7 +166,7 @@ public class FishAI : MonoBehaviour
 
     }
 
-    private void KeepPoleOccupied() // keep the pole occupied for 2 seconds to allow the fish that was unsuccessfully caught to swim to next wander point
+    private void KeepPoleOccupied() // keep the pole occupied for 3 seconds to allow the fish that was unsuccessfully caught to swim to next wander point
     {
         poleOccupied = false;
     }
