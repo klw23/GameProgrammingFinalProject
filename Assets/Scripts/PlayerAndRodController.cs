@@ -7,7 +7,7 @@ public class PlayerAndRodController : MonoBehaviour
     public float moveSpeed = 5;
     public float rotationSpeed = 700;
     CharacterController controller;
-    Vector3 input, moveDirection;
+    Vector3 moveDirection;
     // Start is called before the first frame update
     void Start()
     {
