@@ -34,13 +34,13 @@ public class LootSpawner : MonoBehaviour
 
                 if (boatCollider != null)
                 {
-                    float padding = 3.0f;
+                    float yPadding = 1.0f;
                     // Use the collider's bounds to determine the spawn area
-                    float spawnX = Random.Range(boatCollider.bounds.min.x + padding, boatCollider.bounds.max.x - padding);
+                    float spawnX = Random.Range(boatCollider.bounds.min.x + 3.0f, boatCollider.bounds.max.x - 3.0f);
                     float boatCenterY = boatCollider.bounds.center.y;
                     float spawnYOffset = Random.Range(-boatWaterFloat.MovingDistances.y, boatWaterFloat.MovingDistances.y);
-                    float spawnY = boatCenterY + spawnYOffset;
-                    float spawnZ = Random.Range(boatCollider.bounds.min.z + padding, boatCollider.bounds.max.z - padding);
+                    float spawnY = boatCenterY + spawnYOffset + yPadding;
+                    float spawnZ = Random.Range(boatCollider.bounds.min.z + 2f, boatCollider.bounds.max.z - 0.5f);
 
                     Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
 
