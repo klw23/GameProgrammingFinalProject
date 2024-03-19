@@ -9,7 +9,6 @@ public class PoleBehavior : MonoBehaviour
     public GameObject bob;
     public GameObject player;
     public float projectileSpeed = 10f;
-    public Animator anim;
 
     LineRenderer lr;
     Rigidbody bobRB;
@@ -32,19 +31,14 @@ public class PoleBehavior : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && isReeledIn)
         {
-            anim.SetInteger("FishingAnim", 1);
-            isReeledIn = false;
-            var animDuration = anim.GetCurrentAnimatorStateInfo(0).length - 1.2f;
-            Invoke("castBob", animDuration);
+            castBob();
         } 
         else if (Input.GetButtonDown("Fire1") && !isReeledIn)
         {
-            anim.SetInteger("FishingAnim", 0);
             reelBob();
         } 
         else if (isReeledIn)
         {
-            anim.SetInteger("FishingAnim", 0);
             UpdateBobStartingPos();
         }
     }
@@ -59,6 +53,7 @@ public class PoleBehavior : MonoBehaviour
         bobStartingPos = bob.transform.position;
         bobRB.useGravity = true;
         bobRB.AddForce(player.transform.forward * projectileSpeed, ForceMode.VelocityChange);
+        isReeledIn = false;
     }
 
     void reelBob()
