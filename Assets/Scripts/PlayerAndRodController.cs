@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerAndRodController : MonoBehaviour
 {
+    public static bool isWalking = false;
     public float moveSpeed = 5;
     public float rotationSpeed = 700;
+    public Animator anim;
+
     CharacterController controller;
     Vector3 moveDirection;
     // Start is called before the first frame update
@@ -17,20 +20,28 @@ public class PlayerAndRodController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-
+        Debug.Log("Horizontal" + Input.GetAxisRaw("Horizontal") + "Vertical" + Input.GetAxisRaw("Vertical"));
         if (!PoleBehavior.isReeledIn)
         {
             // do not let player move
+            isWalking = false;
         }
-        else
+        else if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            float moveVertical = Input.GetAxis("Vertical");
+
+            anim.SetInteger("FishingAnim", 1);
             moveDirection = new Vector3(moveHorizontal, 0, moveVertical);
             moveDirection.Normalize();
 
             controller.Move(moveDirection * moveSpeed * Time.deltaTime); //allows us to move the character based on keyboard input
 
+            isWalking = true;
+        } else
+        {
+            anim.SetInteger("FishingAnim", 0);
+            isWalking = false;
         }
     }
 }
