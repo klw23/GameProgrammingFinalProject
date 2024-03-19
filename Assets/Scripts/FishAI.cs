@@ -23,9 +23,16 @@ public class FishAI : MonoBehaviour
     public static int numberOfFishSpawned = 0;
     public int fishValue = 20;
 
+    public AudioClip yaySFX;
+
     float countDown;
     public float timeToCatch = 1f;
     public static bool poleOccupied = false;
+
+    public GameObject splashEffectPrefab;
+    private GameObject splashEffectInstance;
+
+    private bool splashEffectPlayed;
 
     void Start()
     {
@@ -33,14 +40,13 @@ public class FishAI : MonoBehaviour
         fishingBob = GameObject.FindGameObjectWithTag("Bob");
         ShuffleWanderPoints();
         numberOfFishSpawned++;
+        splashEffectPlayed = false;
         Initialize();
     }
 
     void Update()
     {
         distanceToFishingBob = Vector3.Distance(transform.position, fishingBob.transform.position);
-
-
 
         switch (currentState)
         {
@@ -88,7 +94,7 @@ public class FishAI : MonoBehaviour
 
     void UpdateSwimState()
     {
-        print("Swimming!");
+        //print("Swimming!");
         if (Vector3.Distance(transform.position, nextDestination) < .5)
         {
             FindNextPoint();
@@ -105,7 +111,7 @@ public class FishAI : MonoBehaviour
 
     void UpdateChaseState()
     {
-        print("Chasing!");
+        //print("Chasing!");
         if (distanceToFishingBob <= chaseDistance) // if we are still within distance to fishing bob
         {
             FaceTarget(fishingBob.transform.position);
@@ -126,13 +132,27 @@ public class FishAI : MonoBehaviour
 
         if (countDown > 0)
         {
+
+            if (!splashEffectPlayed)
+            {
+
+                // play particle effect
+                splashEffectInstance = Instantiate(splashEffectPrefab, transform.position, Quaternion.identity, transform);
+                splashEffectPlayed = true;
+                Destroy(splashEffectInstance, 3);
+
+            }
+
             countDown -= Time.deltaTime;
 
             if (PoleBehavior.isReeledIn)
             {
-                // TODO fish value is currently 20, add this to the level manager to update points
+                AudioSource.PlayClipAtPoint(yaySFX, transform.position);
+                LevelManagerBehavior.currentScore += fishValue;
                 countDown = 0;
                 poleOccupied = false;
+                // destroy particle effect
+                Destroy(splashEffectInstance, 3);
                 numberOfFishSpawned--; // decrease number of fish spawned
                 Destroy(gameObject);
 
@@ -140,6 +160,7 @@ public class FishAI : MonoBehaviour
             else if (!PoleBehavior.isReeledIn && countDown <= 0)
             {
                 print("unsuccesful catch");
+                Destroy(splashEffectInstance, 3);
                 FindNextPoint();
                 Invoke("KeepPoleOccupied", 3);
                 currentState = FSMStates.Swim; // if the fish was unsuccessfuly caught, have it keep swimming
@@ -148,7 +169,7 @@ public class FishAI : MonoBehaviour
 
     }
 
-    private void KeepPoleOccupied() // keep the pole occupied for 2 seconds to allow the fish that was unsuccessfully caught to swim to next wander point
+    private void KeepPoleOccupied() // keep the pole occupied for 3 seconds to allow the fish that was unsuccessfully caught to swim to next wander point
     {
         poleOccupied = false;
     }

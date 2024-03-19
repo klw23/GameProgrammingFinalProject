@@ -62,25 +62,30 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\DirectionalLightBehavior.cs" />
     <Compile Include="Assets\Scripts\ShootProjectile.cs" />
+    <Compile Include="Assets\Scripts\FishSpawnManager.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\GerstnerDisplace.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\MeshContainer.cs" />
     <Compile Include="Assets\Scripts\FishingBobBehavior.cs" />
     <Compile Include="Assets\Scripts\WaterFloat.cs" />
     <Compile Include="Assets\Scripts\StartGameBehavior.cs" />
+    <Compile Include="Assets\Scripts\LootBehavior.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\Water.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
     <Compile Include="Assets\SceneRelatedAssets\Free HDR Skyboxes Pack\Example Scenes\Script\RotateCamera.cs" />
+    <Compile Include="Assets\OldScripts\FishBehavior.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\WaterBase.cs" />
     <Compile Include="Assets\OldScripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\CameraBehavior.cs" />
     <Compile Include="Assets\Scripts\DestroyObject.cs" />
+    <Compile Include="Assets\Scripts\FishAI.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\PlanarReflection.cs" />
     <Compile Include="Assets\Scripts\PlayerAndRodController.cs" />
-    <Compile Include="Assets\Scripts\FishBehavior.cs" />
+    <Compile Include="Assets\Scripts\LootSpawner.cs" />
     <Compile Include="Assets\Scripts\MouseLook.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\SpecularLighting.cs" />
     <Compile Include="Assets\Scripts\LevelManagerBehavior.cs" />
     <Compile Include="Assets\OldScripts\FishingPoleBehavior2.cs" />
+    <Compile Include="Assets\Scripts\FollowPlayer.cs" />
     <Compile Include="Assets\Scripts\PoleBehavior.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\Displace.cs" />
   </ItemGroup>
@@ -100,6 +105,7 @@
     <None Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\PirateCoin\ReadMe!.rtf.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
@@ -117,6 +123,7 @@
     <None Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Effects\ImageEffects\Readme.txt" />
     <None Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
     <None Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
+    <None Include="Assets\Props_3D\Document\readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.FilePathAttribute;
 
 public class MouseLook : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float mouseSensitivity = 100f; 
+    public Transform playerTransform;
     void Start()
     {
         
@@ -17,17 +19,33 @@ public class MouseLook : MonoBehaviour
             // do not let player move
         } else
         {
+            // Vector3 mousePos = Input.mousePosition;
+            // Vector3 WorldPoint = Camera.main.WorldToScreenPoint(mousePos);
+            // WorldPoint.y = transform.position.y;
+            // transform.LookAt(-WorldPoint);
+
             Vector3 mousePos = Input.mousePosition;
-            Vector3 playerPos = Camera.main.WorldToScreenPoint(transform.position);
 
-            Vector3 direction = mousePos - playerPos;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            mousePos -= new Vector3(Screen.width / 2, Screen.height / 2, 0);
+            mousePos *= mouseSensitivity;
 
-            transform.rotation = Quaternion.AngleAxis(-angle, Vector3.up);
+            // re-center mouse position
+            mousePos += new Vector3(Screen.width / 2, Screen.height / 2, 0);
 
-            // References: https://stackoverflow.com/questions/29559280/unity-rotate-towards-mouse-in-3d-topdown-view
+            mousePos.z = Camera.main.transform.position.y - playerTransform.position.y;
+
+            Vector3 worldPoint = Camera.main.ScreenToWorldPoint(mousePos);
+            Vector3 lookDirection = (worldPoint - playerTransform.position).normalized;
+            Vector3 farPoint = playerTransform.position + lookDirection * 1000;
+
+            farPoint.y = playerTransform.position.y;
+
+            // rotate the transform to look at the world space point
+            playerTransform.LookAt(farPoint);
+
+            
         }
-        
+
     }
 
 }

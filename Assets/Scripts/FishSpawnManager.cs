@@ -5,7 +5,7 @@ using UnityEngine;
 public class FishSpawnManager : MonoBehaviour
 {
     public GameObject fishPrefab;
-    public int maxFishInGame = 3;
+    public int maxFishInGame = 4;
     public int maxTotalFish = 10;
     private int totalFishSpawned = 0;
     private GameObject fishParent;
