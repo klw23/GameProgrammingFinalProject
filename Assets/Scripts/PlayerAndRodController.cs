@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAndRodController : MonoBehaviour
 {
+    public static bool isWalking = false;
     public float moveSpeed = 5;
     public float rotationSpeed = 700;
     public Animator anim;
@@ -23,6 +24,7 @@ public class PlayerAndRodController : MonoBehaviour
         if (!PoleBehavior.isReeledIn)
         {
             // do not let player move
+            isWalking = false;
         }
         else if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
@@ -35,9 +37,11 @@ public class PlayerAndRodController : MonoBehaviour
 
             controller.Move(moveDirection * moveSpeed * Time.deltaTime); //allows us to move the character based on keyboard input
 
+            isWalking = true;
         } else
         {
             anim.SetInteger("FishingAnim", 0);
+            isWalking = false;
         }
     }
 }

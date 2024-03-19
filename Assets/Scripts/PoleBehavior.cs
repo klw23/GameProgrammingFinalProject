@@ -29,7 +29,7 @@ public class PoleBehavior : MonoBehaviour
         lr.SetPosition(0, transform.GetChild(0).gameObject.transform.position); //RodEndConnection
         lr.SetPosition(1, bob.transform.position); // bob Connection
 
-        if (Input.GetButtonDown("Fire1") && isReeledIn)
+        if (Input.GetButtonDown("Fire1") && isReeledIn && !PlayerAndRodController.isWalking)
         {
             castBob();
         } 
