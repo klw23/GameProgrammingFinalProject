@@ -102,7 +102,7 @@ MonoBehaviour:
   chaseDistance: 2
   fishingBob: {fileID: 0}
   fishValue: 20
-  yaySFX: {fileID: 0}
+  yaySFX: {fileID: 8300000, guid: a850fbfb89ad54ed3842d137c6322dec, type: 3}
   timeToCatch: 2
   splashEffectPrefab: {fileID: 4891976383728537193, guid: ff1b41ede4e1f4a6fb6f17c6a985c0cb, type: 3}
 --- !u!1001 &7648926455883770317
