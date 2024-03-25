@@ -7,10 +7,10 @@ public class LootSpawner : MonoBehaviour
 {
     public GameObject lootPrefab; 
 
-    public GameObject boatPrefab;
+    public GameObject islandPrefab;
 
     public float spawnTime = 7f; // time between spawns
-    private int maxLoot = 3; // max number of loot
+    private int maxLoot = 10; // max number of loot
     private int currentLootCount = 0; // current number of loot items
 
     public AudioClip lootSFX;
@@ -23,38 +23,32 @@ public class LootSpawner : MonoBehaviour
 
     void SpawnLoot()
     {
-        if (currentLootCount < maxLoot)
+        if (currentLootCount < maxLoot && islandPrefab != null)
         {
-            if (boatPrefab != null)
+            Collider islandCollider = islandPrefab.GetComponent<Collider>();
+            if (islandCollider != null)
             {
-                Debug.Log("Spawning Loot");
-                GameObject actualBoatObject = boatPrefab.transform.GetChild(0).gameObject;
-                Collider boatCollider = actualBoatObject.GetComponent<Collider>();
-                WaterFloat boatWaterFloat = boatPrefab.GetComponent<WaterFloat>();
+                // Use the island's collider bounds
+                float spawnX = Random.Range(islandCollider.bounds.min.x, islandCollider.bounds.max.x);
+                float spawnZ = Random.Range(islandCollider.bounds.min.z, islandCollider.bounds.max.z);
+                
+                float spawnY = islandCollider.bounds.max.y + 0.5f; 
 
-                if (boatCollider != null)
-                {
-                    float yPadding = 1.0f;
-                    // Use the collider's bounds to determine the spawn area
-                    float spawnX = Random.Range(boatCollider.bounds.min.x + 3.0f, boatCollider.bounds.max.x - 3.0f);
-                    float boatCenterY = boatCollider.bounds.center.y;
-                    float spawnYOffset = Random.Range(-boatWaterFloat.MovingDistances.y, boatWaterFloat.MovingDistances.y);
-                    float spawnY = boatCenterY + spawnYOffset + yPadding;
-                    float spawnZ = Random.Range(boatCollider.bounds.min.z + 2f, boatCollider.bounds.max.z - 0.5f);
+                Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
 
-                    Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
+                // Instantiate the loot prefab at the calculated position
+                GameObject spawnedLoot = Instantiate(lootPrefab, spawnPosition, Quaternion.identity);
+                spawnedLoot.transform.SetParent(transform); 
 
-                    Debug.Log($"Loot spawned at: {spawnPosition}");
+                currentLootCount++; // Increment the loot count
 
-                    GameObject spawnedLoot = Instantiate(lootPrefab, spawnPosition, Quaternion.identity);
-                    spawnedLoot.transform.SetParent(transform);
+                // Play the loot spawn sound effect
+                AudioSource.PlayClipAtPoint(lootSFX, spawnPosition);
 
-                    currentLootCount++;
+                Debug.Log($"Loot spawned at: {spawnPosition}");
 
-                    AudioSource.PlayClipAtPoint(lootSFX, spawnPosition);
-                }
             }
-        }
+
     }
 
 
