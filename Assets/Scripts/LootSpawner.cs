@@ -7,7 +7,7 @@ public class LootSpawner : MonoBehaviour
 {
     public GameObject lootPrefab; 
 
-    public GameObject boatPrefab;
+    public GameObject islandPrefab;
 
     public float spawnTime = 7f; // time between spawns
     private int maxLoot = 3; // max number of loot
@@ -25,12 +25,12 @@ public class LootSpawner : MonoBehaviour
     {
         if (currentLootCount < maxLoot)
         {
-            if (boatPrefab != null)
+            if (islandPrefab != null)
             {
                 Debug.Log("Spawning Loot");
-                GameObject actualBoatObject = boatPrefab.transform.GetChild(0).gameObject;
+                GameObject actualBoatObject = islandPrefab.transform.GetChild(0).gameObject;
                 Collider boatCollider = actualBoatObject.GetComponent<Collider>();
-                WaterFloat boatWaterFloat = boatPrefab.GetComponent<WaterFloat>();
+                WaterFloat boatWaterFloat = islandPrefab.GetComponent<WaterFloat>();
 
                 if (boatCollider != null)
                 {
