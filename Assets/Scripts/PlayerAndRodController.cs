@@ -32,37 +32,22 @@ public class PlayerAndRodController : MonoBehaviour
     void Update()
     {
         Debug.Log("Horizontal" + Input.GetAxisRaw("Horizontal") + "Vertical" + Input.GetAxisRaw("Vertical"));
-        print("touching barrier " + PlayerBarrier.touchingCollider);
-
         if (!PoleBehavior.isReeledIn)
         {
-            // Do not let player move
+            // do not let player move
             isWalking = false;
-            return; // Early return to prevent further execution in this case
         }
-
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-
-        Vector3 intendedDirection = new Vector3(moveHorizontal, 0, moveVertical).normalized;
-        Vector3 currentPosition = transform.position;
-        Vector3 nextPosition = currentPosition + intendedDirection * moveSpeed * Time.deltaTime;
-        Vector3 centerPosition = islandCenter.transform.position;
-
-        // Calculate distances
-        float currentDistance = Vector3.Distance(currentPosition, centerPosition);
-        float nextDistance = Vector3.Distance(nextPosition, centerPosition);
-
-        // Determine if moving closer to the center
-        bool movingTowardsCenter = nextDistance < currentDistance;
-
-
-        print("center " + movingTowardsCenter);
-        if (movingTowardsCenter || !PlayerBarrier.touchingCollider)
+        else if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            float moveVertical = Input.GetAxis("Vertical");
+
             anim.SetInteger("FishingAnim", 1);
-            moveDirection = intendedDirection;
-            controller.Move(moveDirection * moveSpeed * Time.deltaTime); // Allows us to move the character based on keyboard input
+            moveDirection = new Vector3(moveHorizontal, 0, moveVertical);
+            moveDirection.Normalize();
+
+            controller.Move(moveDirection * moveSpeed * Time.deltaTime); //allows us to move the character based on keyboard input
+
             isWalking = true;
         }
         else
@@ -71,6 +56,5 @@ public class PlayerAndRodController : MonoBehaviour
             isWalking = false;
         }
     }
-
 
 }
