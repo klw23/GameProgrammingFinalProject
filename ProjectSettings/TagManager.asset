@@ -12,6 +12,7 @@ TagManager:
   - WanderPoint
   - FishParent
   - Loot
+  - Environment
   layers:
   - Default
   - TransparentFX
