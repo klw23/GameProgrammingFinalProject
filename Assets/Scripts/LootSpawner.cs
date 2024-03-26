@@ -31,14 +31,14 @@ public class LootSpawner : MonoBehaviour
                 // Use the island's collider bounds
                 float spawnX = Random.Range(islandCollider.bounds.min.x, islandCollider.bounds.max.x);
                 float spawnZ = Random.Range(islandCollider.bounds.min.z, islandCollider.bounds.max.z);
-                
-                float spawnY = islandCollider.bounds.max.y + 0.5f; 
+
+                float spawnY = islandCollider.bounds.max.y + 0.5f;
 
                 Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
 
                 // Instantiate the loot prefab at the calculated position
                 GameObject spawnedLoot = Instantiate(lootPrefab, spawnPosition, Quaternion.identity);
-                spawnedLoot.transform.SetParent(transform); 
+                spawnedLoot.transform.SetParent(transform);
 
                 currentLootCount++; // Increment the loot count
 
@@ -49,14 +49,16 @@ public class LootSpawner : MonoBehaviour
 
             }
 
-    }
-
-
-    public void LootCollected()
-    {
-        if (currentLootCount > 0)
-        {
-            currentLootCount--;
         }
     }
+
+
+        public void LootCollected()
+        {
+            if (currentLootCount > 0)
+            {
+                currentLootCount--;
+            }
+        }
+   
 }

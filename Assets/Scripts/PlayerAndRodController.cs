@@ -43,7 +43,7 @@ public class PlayerAndRodController : MonoBehaviour
             float moveVertical = Input.GetAxis("Vertical");
 
             anim.SetInteger("FishingAnim", 1);
-            moveDirection = new Vector3(moveHorizontal, 0, moveVertical);
+            moveDirection = new Vector3(-moveHorizontal, 0, -moveVertical);
             moveDirection.Normalize();
 
             controller.Move(moveDirection * moveSpeed * Time.deltaTime); //allows us to move the character based on keyboard input

@@ -51,6 +51,7 @@ public class PoleBehavior : MonoBehaviour
     void castBob()
     {
         bobStartingPos = bob.transform.position;
+        bobRB.isKinematic = false;
         bobRB.useGravity = true;
         bobRB.AddForce(player.transform.forward * projectileSpeed, ForceMode.VelocityChange);
         isReeledIn = false;
@@ -59,9 +60,6 @@ public class PoleBehavior : MonoBehaviour
     void reelBob()
     {
         isReeledIn = true;
-        //bobRB.velocity = Vector3.zero; // Reset velocity
-        //bobRB.angularVelocity = Vector3.zero; // Reset angular velocity
-        //bobRB.useGravity = false; // Optionally turn off gravity
         bob.transform.position = bobStartingPos;
     }
 }
