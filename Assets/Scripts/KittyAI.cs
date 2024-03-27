@@ -15,13 +15,23 @@ public class KittyAI : MonoBehaviour
     GameObject[] wanderPoints;
     Vector3 nextDestination;
     Animator anim;
-    public float kittySpeed = 2.0f;
+    public GameObject player;
+    public float kittyWalkSpeed = 0.8f;
+
+    public float kittyRunSpeed = 1.5f;
+    float kittySpeed;
     int currentDestinationIndex = 0;
+    public float talkDistance = 1;
+    public float runDistance = 4;
+    float distanceToPlayer;
+    public Canvas canvas;
 
     void Start()
     {
         wanderPoints = GameObject.FindGameObjectsWithTag("WanderPoint");
         ShuffleWanderPoints();
+
+        player = GameObject.FindGameObjectWithTag("Player");
 
         anim = GetComponent<Animator>();
 
@@ -30,6 +40,7 @@ public class KittyAI : MonoBehaviour
 
     void Update()
     {
+        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
         ShuffleWanderPoints();
         switch (currentState)
         {
@@ -38,6 +49,9 @@ public class KittyAI : MonoBehaviour
                 break;
             case FSMStates.Walk:
                 UpdateWalkState();
+                break;
+            case FSMStates.Run:
+                UpdateRunState();
                 break;
         }
     }
@@ -74,6 +88,23 @@ public class KittyAI : MonoBehaviour
 
     void UpdateIdleState()
     {
+        nextDestination = player.transform.position;
+
+        if (distanceToPlayer <= talkDistance)
+        {
+            currentState = FSMStates.Idle;
+        }
+        else if (distanceToPlayer > talkDistance && distanceToPlayer <= runDistance)
+        {
+            currentState = FSMStates.Run;
+        }
+        else if (distanceToPlayer > runDistance)
+        {
+            currentState = FSMStates.Walk;
+        }
+
+        FaceTarget(nextDestination);
+
         anim.SetInteger("animState", 0);
     }
 
@@ -86,7 +117,43 @@ public class KittyAI : MonoBehaviour
             FindNextPoint();
 
         }
+        else if (distanceToPlayer <= runDistance)
+        {
+            currentState = FSMStates.Run;
+        }
 
+        canvas.gameObject.SetActive(false);
+        kittySpeed = kittyWalkSpeed;
+        FaceTarget(nextDestination);
+        transform.position = Vector3.MoveTowards(transform.position, nextDestination, kittySpeed * Time.deltaTime);
+    }
+
+    void UpdateRunState()
+    {
+        anim.SetInteger("animState", 2);
+
+        nextDestination = player.transform.position;
+
+        if (distanceToPlayer <= talkDistance)
+        {
+            currentState = FSMStates.Idle;
+        }
+        else if (distanceToPlayer > runDistance)
+        {
+            currentState = FSMStates.Walk;
+        }
+
+        FaceTarget(nextDestination);
+
+
+        if (Vector3.Distance(transform.position, nextDestination) < .5)
+        {
+            FindNextPoint();
+
+        }
+
+        canvas.gameObject.SetActive(true);
+        kittySpeed = kittyRunSpeed;
         FaceTarget(nextDestination);
         transform.position = Vector3.MoveTowards(transform.position, nextDestination, kittySpeed * Time.deltaTime);
     }
