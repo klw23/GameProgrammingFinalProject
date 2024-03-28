@@ -11,11 +11,7 @@ public class PlayerAndRodController : MonoBehaviour
     public float rotationSpeed = 700;
     public Animator anim;
 
-    public float minX = 147f;
-    public float maxX = 419f;
-    public float minZ = -534f;
-    public float maxZ = 810f;
-    public GameObject islandCenter;
+ 
 
 
     // private variables
@@ -42,17 +38,17 @@ public class PlayerAndRodController : MonoBehaviour
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
 
-            anim.SetInteger("FishingAnim", 1);
             moveDirection = new Vector3(-moveHorizontal, 0, -moveVertical);
             moveDirection.Normalize();
 
             controller.Move(moveDirection * moveSpeed * Time.deltaTime); //allows us to move the character based on keyboard input
+            anim.SetInteger("MichelleMovement", 1);
 
             isWalking = true;
         }
         else
         {
-            anim.SetInteger("FishingAnim", 0);
+            anim.SetInteger("MichelleMovement", 0);
             isWalking = false;
         }
     }
