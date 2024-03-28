@@ -649,7 +649,7 @@ MonoBehaviour:
   text1: {fileID: 634625477}
   text2: {fileID: 1732457257}
   text3: {fileID: 1024244786}
-  nextLevel: 1 - LevelOneThirdPersonScene2
+  nextLevel: 1 - LevelOneScene2
   fishInventory: {fileID: 451878766}
 --- !u!4 &1297353901
 Transform:
