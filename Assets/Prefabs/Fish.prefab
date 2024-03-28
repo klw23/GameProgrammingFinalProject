@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   fishSpeed: 3
-  chaseDistance: 2
+  chaseDistance: 2.5
   fishingBob: {fileID: 0}
   fishValue: 20
   yaySFX: {fileID: 8300000, guid: a850fbfb89ad54ed3842d137c6322dec, type: 3}
