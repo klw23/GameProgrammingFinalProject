@@ -23,6 +23,8 @@ public class PoleBehavior : MonoBehaviour
 
     }
 
+
+
     void Update()
     {
         // Connect the pole and the bob with a line 

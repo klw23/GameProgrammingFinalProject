@@ -22,7 +22,6 @@ public class FishingBobBehavior : MonoBehaviour
     {
         if (collision.gameObject.tag == "Water")
         {
-            Debug.Log("Hit Water");
             bobRB.isKinematic = true;
         }
         else
