@@ -94,7 +94,7 @@ public class FishAI : MonoBehaviour
 
     void UpdateSwimState()
     {
-        //print("Swimming!");
+        print("Swimming!");
         if (Vector3.Distance(transform.position, nextDestination) < .5)
         {
             FindNextPoint();
@@ -111,14 +111,14 @@ public class FishAI : MonoBehaviour
 
     void UpdateChaseState()
     {
-        //print("Chasing!");
-        if (distanceToFishingBob <= chaseDistance) // if we are still within distance to fishing bob
+        print("Chasing!");
+        if (distanceToFishingBob <= chaseDistance)
         {
             FaceTarget(fishingBob.transform.position);
-            Vector3 targetPosition = new Vector3(fishingBob.transform.position.x, transform.position.y, fishingBob.transform.position.z);
+            Vector3 targetPosition = new Vector3(fishingBob.transform.position.x, 0f, fishingBob.transform.position.z);
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, fishSpeed * 2 * Time.deltaTime);
         }
-        else // if we are no longer within distance to fishing bob
+        else 
         {
             currentState = FSMStates.Swim;
             Invoke("KeepPoleOccupied", 3); // don't allow other fish to chase the pole for X seconds
@@ -181,5 +181,15 @@ public class FishAI : MonoBehaviour
             countDown = timeToCatch;
             currentState = FSMStates.Caught;
         }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Bob"))
+        {
+            countDown = timeToCatch;
+            currentState = FSMStates.Caught;
+         }
     }
 }

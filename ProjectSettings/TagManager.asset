@@ -12,6 +12,9 @@ TagManager:
   - WanderPoint
   - FishParent
   - Loot
+  - Environment
+  - FishSpawnPoint
+  - Island
   layers:
   - Default
   - TransparentFX

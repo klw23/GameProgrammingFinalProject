@@ -22,9 +22,11 @@ public class FishingBobBehavior : MonoBehaviour
     {
         if (collision.gameObject.tag == "Water")
         {
-            Debug.Log("Hit Water");
-            bobRB.velocity = Vector3.zero;
-            bobRB.useGravity = false;
-        } 
+            bobRB.isKinematic = true;
+        }
+        else
+        {
+
+        }
     }
 }

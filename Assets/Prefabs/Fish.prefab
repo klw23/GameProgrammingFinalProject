@@ -50,7 +50,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -84,7 +84,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &378899414605834103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   fishSpeed: 3
-  chaseDistance: 2
+  chaseDistance: 2.5
   fishingBob: {fileID: 0}
   fishValue: 20
   yaySFX: {fileID: 8300000, guid: a850fbfb89ad54ed3842d137c6322dec, type: 3}
