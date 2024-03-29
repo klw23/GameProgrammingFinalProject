@@ -48,8 +48,10 @@ public class LootSpawner : MonoBehaviour
                 Debug.Log($"Loot spawned at: {spawnPosition}");
 
             }
+        }
 
     }
+
 
 
     public void LootCollected()
