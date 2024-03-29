@@ -61,14 +61,5 @@ public class LootSpawner : MonoBehaviour
             currentLootCount--;
         }
     }
-
-
-        public void LootCollected()
-        {
-            if (currentLootCount > 0)
-            {
-                currentLootCount--;
-            }
-        }
    
 }
