@@ -23,7 +23,9 @@ public class FollowPlayer : MonoBehaviour
         cameraPos.x = player.position.x + Xoffset;
         cameraPos.y = player.position.y + Yoffset;
         cameraPos.z = player.position.z + Zoffset;
-         
-        transform.LookAt(tipOfFishingRod); // Camera always looks at the player
+
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, cameraPos, smoothSpeed);
+        transform.position = smoothedPosition;
+
     }
 }

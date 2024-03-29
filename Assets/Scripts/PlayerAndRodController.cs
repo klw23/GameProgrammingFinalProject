@@ -9,7 +9,7 @@ public class PlayerAndRodController : MonoBehaviour
     public static bool isWalking = false;
     public float moveSpeed = 5;
     public float rotationSpeed = 700;
-    public float jumpHeight = 9.81f;
+    public float jumpHeight = 2f;
     public float gravity = 9.81f;
     public Animator anim;
 
@@ -43,7 +43,7 @@ public class PlayerAndRodController : MonoBehaviour
                 else
                 {
                     anim.SetInteger("MichelleMovement", 0);
-                    moveDirection = Vector3.zero;
+                    //moveDirection = Vector3.zero;
                     isWalking = false;
                 }
             } 
