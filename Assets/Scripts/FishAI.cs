@@ -34,6 +34,10 @@ public class FishAI : MonoBehaviour
 
     private bool splashEffectPlayed;
 
+    public Transform fishEyes;
+    public float fieldOfView = 100f;
+
+
     void Start()
     {
         wanderPoints = GameObject.FindGameObjectsWithTag("WanderPoint");
@@ -94,12 +98,11 @@ public class FishAI : MonoBehaviour
 
     void UpdateSwimState()
     {
-        print("Swimming!");
         if (Vector3.Distance(transform.position, nextDestination) < .5)
         {
             FindNextPoint();
         }
-        else if (distanceToFishingBob <= chaseDistance && !poleOccupied && !PoleBehavior.isReeledIn) // only if pole is not cast and pole is not occupied and is within distance
+        else if (distanceToFishingBob <= chaseDistance && !poleOccupied && !PoleBehavior.isReeledIn && InFieldOfVision()) // only if pole is not cast and pole is not occupied and is within distance
         {
             poleOccupied = true;
             currentState = FSMStates.Chase;
@@ -111,14 +114,13 @@ public class FishAI : MonoBehaviour
 
     void UpdateChaseState()
     {
-        print("Chasing!");
         if (distanceToFishingBob <= chaseDistance)
         {
             FaceTarget(fishingBob.transform.position);
             Vector3 targetPosition = new Vector3(fishingBob.transform.position.x, 0f, fishingBob.transform.position.z);
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, fishSpeed * 2 * Time.deltaTime);
         }
-        else 
+        else
         {
             currentState = FSMStates.Swim;
             Invoke("KeepPoleOccupied", 3); // don't allow other fish to chase the pole for X seconds
@@ -128,7 +130,6 @@ public class FishAI : MonoBehaviour
 
     void UpdateCaughtState()
     {
-        print("Caught!");
 
         if (countDown > 0)
         {
@@ -159,7 +160,6 @@ public class FishAI : MonoBehaviour
             }
             else if (!PoleBehavior.isReeledIn && countDown <= 0)
             {
-                print("unsuccesful catch");
                 Destroy(splashEffectInstance, 3);
                 FindNextPoint();
                 Invoke("KeepPoleOccupied", 3);
@@ -190,6 +190,27 @@ public class FishAI : MonoBehaviour
         {
             countDown = timeToCatch;
             currentState = FSMStates.Caught;
-         }
+        }
+    }
+
+    private bool InFieldOfVision()
+    {
+        RaycastHit hit;
+        Vector3 directionToBob = fishingBob.transform.position - fishEyes.position;
+        if (Vector3.Angle(directionToBob, fishEyes.forward) <= fieldOfView)
+        {
+            if (Physics.Raycast(fishEyes.position, directionToBob, out hit, chaseDistance))
+            {
+                if (hit.collider.CompareTag("Bob"))
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+
+        }
+        return false;
+
     }
 }
