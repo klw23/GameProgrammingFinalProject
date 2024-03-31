@@ -43,7 +43,7 @@ public class PlayerAndRodController : MonoBehaviour
                 else
                 {
                     anim.SetInteger("MichelleMovement", 0);
-                    moveDirection = Vector3.zero;
+                    //moveDirection = Vector3.zero;
                     isWalking = false;
                 }
             } 

@@ -48,17 +48,18 @@ public class LootSpawner : MonoBehaviour
                 Debug.Log($"Loot spawned at: {spawnPosition}");
 
             }
-
         }
+
     }
 
 
-        public void LootCollected()
+
+    public void LootCollected()
+    {
+        if (currentLootCount > 0)
         {
-            if (currentLootCount > 0)
-            {
-                currentLootCount--;
-            }
+            currentLootCount--;
         }
+    }
    
 }
