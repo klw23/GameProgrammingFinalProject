@@ -13,6 +13,8 @@ public class PlayerAndRodController : MonoBehaviour
     public float gravity = 9.81f;
     public Animator anim;
 
+    public bool invertControls = false;
+
     // private variables
     CharacterController controller;
     Vector3 input, moveDirection;
@@ -36,7 +38,7 @@ public class PlayerAndRodController : MonoBehaviour
                 } 
                 else if (Input.GetButton("Jump"))
                 {
-                    anim.SetInteger("MichelleMovement", 2);
+                    anim.SetInteger("MichelleMovement", 5);
                     moveDirection.y = Mathf.Sqrt(2 * jumpHeight * gravity);
                     isWalking = false;
                 }
@@ -70,7 +72,32 @@ public class PlayerAndRodController : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        moveDirection = new Vector3(-moveHorizontal, 0, -moveVertical);
+        if (moveHorizontal > 0 )
+        {
+            anim.SetInteger("MichelleMovement", 3);
+        } 
+        else if (moveHorizontal < 0 )
+        {
+            anim.SetInteger("MichelleMovement", 4);
+        }
+        else if (moveVertical > 0)
+        {
+            anim.SetInteger("MichelleMovement", 1);
+        }
+        else if (moveVertical < 0)
+        {
+            anim.SetInteger("MichelleMovement", 2);
+        }
+
+        if(invertControls)
+        {
+            moveDirection = new Vector3(-moveHorizontal, 0, -moveVertical);
+        }
+        else
+        {
+            moveDirection = new Vector3(moveHorizontal, 0, moveVertical);
+        }
+      
         moveDirection.Normalize();
 
         controller.Move(moveDirection * moveSpeed * Time.deltaTime); //allows us to move the character based on keyboard input
