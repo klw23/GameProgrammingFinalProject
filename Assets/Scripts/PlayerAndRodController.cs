@@ -20,7 +20,6 @@ public class PlayerAndRodController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        Debug.Log(controller.gameObject.name);
     }
 
     void Update()
@@ -55,15 +54,19 @@ public class PlayerAndRodController : MonoBehaviour
                 moveDirection = Vector3.Lerp(moveDirection, input, Time.deltaTime);
                 isWalking = false;
             }
-
-            moveDirection.y -= gravity * Time.deltaTime;
-            controller.Move(moveDirection * Time.deltaTime);
+        } 
+        else
+        {
+            anim.SetInteger("MichelleMovement", 0);
+            moveDirection = Vector3.zero;
         }
+
+        moveDirection.y -= gravity * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
     }
 
     void onGroundMove()
     {
-        print("hit");
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 

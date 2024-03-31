@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/0-OpeningScene.unity
     guid: 16ee7d0e9d2d34bbb9fc123df051067e
   - enabled: 1
-    path: Assets/Scenes/0.5-IntroduceStoryLine.unity
+    path: Assets/OldScripts/0.5-IntroduceStoryLine.unity
     guid: 60ccf050aca5a434dbbb29a2a6bd5689
   - enabled: 1
     path: Assets/Scenes/0.5 - IntroductionKitty.unity
