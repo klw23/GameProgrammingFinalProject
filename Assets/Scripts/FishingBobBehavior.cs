@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FishingBobBehavior : MonoBehaviour
 { 
@@ -26,7 +27,13 @@ public class FishingBobBehavior : MonoBehaviour
         }
         else
         {
-
+            PoleBehavior.isReeledIn = true;
         }
     }
+
+    //void reelBob()
+    //{
+    //    PoleBehavior.isReeledIn = true;
+    //    transform.position = PoleBehavior.bobStartingPos;
+    //}
 }
