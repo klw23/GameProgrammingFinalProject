@@ -311,11 +311,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: f0a1b76ea806448debfba4f2dba99496, type: 3}
-    m_FontSize: 35
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -323,9 +323,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Kaia, you''ve been living on this island your whole life. You hope to
-    see what the rest of the world has to offer. One day you receive a letter from
-    Northeastern University.. but you quickly realize you can''t afford the cost
-    of going. '
+    see what the rest of the world has to offer. '
 --- !u!222 &634625478
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -577,19 +575,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: f0a1b76ea806448debfba4f2dba99496, type: 3}
-    m_FontSize: 35
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Your first stop is : Bermuda. Catch enough fish to make at least 100 dollars.
-    You only have 1 day, so hurry. Good Luck!'
+  m_Text: So, you set off on a grand adventure, hoping to make enough money by doing
+    what you're best at.. fishing!
 --- !u!222 &1024244787
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -649,8 +647,6 @@ MonoBehaviour:
   text1: {fileID: 634625477}
   text2: {fileID: 1732457257}
   text3: {fileID: 1024244786}
-  nextLevel: 1 - LevelOneScene2
-  fishInventory: {fileID: 451878766}
 --- !u!4 &1297353901
 Transform:
   m_ObjectHideFlags: 0
@@ -1204,19 +1200,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: f0a1b76ea806448debfba4f2dba99496, type: 3}
-    m_FontSize: 35
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: So, you set off on your grandmother's small boat, hoping to make enough
-    money by doing what you're best at.. Fishing...
+  m_Text: 'One day you receive a letter from Northeastern University.. but you quickly
+    realize you can''t afford the cost of going. '
 --- !u!222 &1732457258
 CanvasRenderer:
   m_ObjectHideFlags: 0

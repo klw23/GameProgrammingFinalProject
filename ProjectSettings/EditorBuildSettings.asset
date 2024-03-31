@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/0-OpeningScene.unity
     guid: 16ee7d0e9d2d34bbb9fc123df051067e
   - enabled: 1
-    path: Assets/Scenes/0.5-IntroduceLevelOneScene.unity
+    path: Assets/Scenes/0.5-IntroduceStoryLine.unity
     guid: 60ccf050aca5a434dbbb29a2a6bd5689
-  - enabled: 0
-    path: Assets/Scenes/1 - LevelOneThirdPersonScene2.unity
-    guid: b965ab1d0c9a54b009a424fb045b2743
+  - enabled: 1
+    path: Assets/Scenes/0.5 - IntroductionKitty.unity
+    guid: e9256d054cce58d499d2534226153ab1
+  - enabled: 1
+    path: Assets/Scenes/1.5 - IntroductionPenguin.unity
+    guid: 8948c0f438d79194cb4bc31ffe98d418
   - enabled: 1
     path: Assets/Scenes/2 - LevelTwoScene1.unity
     guid: 28111ae80c60e49fb8fa77c09d482723
