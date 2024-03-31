@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class KittyAI : MonoBehaviour
 {
@@ -141,15 +142,6 @@ public class KittyAI : MonoBehaviour
         else if (distanceToPlayer > runDistance)
         {
             currentState = FSMStates.Walk;
-        }
-
-        FaceTarget(nextDestination);
-
-
-        if (Vector3.Distance(transform.position, nextDestination) < .5)
-        {
-            FindNextPoint();
-
         }
 
         canvas.gameObject.SetActive(true);

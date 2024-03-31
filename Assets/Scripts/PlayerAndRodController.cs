@@ -20,6 +20,7 @@ public class PlayerAndRodController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        Debug.Log(controller.gameObject.name);
     }
 
     void Update()

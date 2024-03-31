@@ -10,7 +10,6 @@ public class CameraBehavior : MonoBehaviour
     Camera mainCamera;
     bool zoomingOut = true;
     float zoomOutTimer = 0f;
-    public string nextLevel;
 
     void Start()
     {
@@ -29,19 +28,11 @@ public class CameraBehavior : MonoBehaviour
                 zoomingOut = false;
                 Invoke("LoadNextLevel", 3);
             }
-          
         }
     }
-
-   
 
     void LoadNextLevel()
     {
-        if (nextLevel != null)
-        {
-            SceneManager.LoadScene(nextLevel);
-
-        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //loads the next scene according to build order
     }
-
 }
