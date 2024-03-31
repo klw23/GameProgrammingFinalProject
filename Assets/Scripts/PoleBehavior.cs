@@ -5,6 +5,7 @@ using UnityEngine;
 public class PoleBehavior : MonoBehaviour
 {
     public static bool isReeledIn;
+    public static Vector3 bobStartingPos;
    
     public GameObject bob;
     public GameObject player;
@@ -12,7 +13,7 @@ public class PoleBehavior : MonoBehaviour
 
     LineRenderer lr;
     Rigidbody bobRB;
-    Vector3 bobStartingPos;
+    
 
     void Start()
     {
@@ -53,13 +54,12 @@ public class PoleBehavior : MonoBehaviour
         bobStartingPos = bob.transform.position;
         bobRB.isKinematic = false;
         bobRB.useGravity = true;
-        bobRB.AddForce(player.transform.forward * projectileSpeed, ForceMode.VelocityChange);
+        bobRB.AddForce(transform.forward * projectileSpeed, ForceMode.VelocityChange);
         isReeledIn = false;
     }
 
     void reelBob()
     {
         isReeledIn = true;
-        bob.transform.position = bobStartingPos;
     }
 }
