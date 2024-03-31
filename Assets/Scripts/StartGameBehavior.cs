@@ -9,8 +9,6 @@ public class StartGameBehavior : MonoBehaviour
     public Text text1;
     public Text text2;
     public Text text3;
-    public string nextLevel;
-    public Text fishInventory;
 
     void Start()
     {
@@ -40,23 +38,12 @@ public class StartGameBehavior : MonoBehaviour
     {
         text2.gameObject.SetActive(false);
         text3.gameObject.SetActive(true);
-        Invoke("ShowFishInventory", 7);
-    }
-
-    void ShowFishInventory()
-    {
-        text3.gameObject.SetActive(false);
-        fishInventory.gameObject.SetActive(true);
         Invoke("LoadNextLevel", 7);
-
     }
+
     void LoadNextLevel()
     {
-        if (nextLevel != null)
-        {
-            SceneManager.LoadScene(nextLevel);
-
-        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //loads the next scene according to build order
     }
 }
 

@@ -15,6 +15,9 @@ TagManager:
   - Environment
   - FishSpawnPoint
   - Island
+  - DialogueCanvas
+  - StartGameText
+  - NPCTextStartCanvas
   layers:
   - Default
   - TransparentFX
