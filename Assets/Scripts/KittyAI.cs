@@ -26,6 +26,7 @@ public class KittyAI : MonoBehaviour
     public float runDistance = 4;
     float distanceToPlayer;
     public Canvas canvas;
+    NavMeshAgent agent;
 
     void Start()
     {
@@ -37,6 +38,8 @@ public class KittyAI : MonoBehaviour
         anim = GetComponent<Animator>();
 
         Initialize();
+        
+        //agent = GetComponent<NavMeshAgent>();
     }
 
     void Update()
@@ -78,6 +81,7 @@ public class KittyAI : MonoBehaviour
     {
         nextDestination = wanderPoints[currentDestinationIndex].transform.position;
         currentDestinationIndex = (currentDestinationIndex + 1) % wanderPoints.Length;
+        //agent.SetDestination(nextDestination);
     }
 
     void FaceTarget(Vector3 target)
@@ -126,6 +130,7 @@ public class KittyAI : MonoBehaviour
         canvas.gameObject.SetActive(false);
         kittySpeed = kittyWalkSpeed;
         FaceTarget(nextDestination);
+        //agent.SetDestination(nextDestination);
         transform.position = Vector3.MoveTowards(transform.position, nextDestination, kittySpeed * Time.deltaTime);
     }
 
@@ -147,6 +152,7 @@ public class KittyAI : MonoBehaviour
         canvas.gameObject.SetActive(true);
         kittySpeed = kittyRunSpeed;
         FaceTarget(nextDestination);
+        //agent.SetDestination(nextDestination);
         transform.position = Vector3.MoveTowards(transform.position, nextDestination, kittySpeed * Time.deltaTime);
     }
 }
