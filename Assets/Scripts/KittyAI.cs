@@ -36,10 +36,10 @@ public class KittyAI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
 
         anim = GetComponent<Animator>();
-
-        Initialize();
         
-        //agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
+
+        Initialize();       
     }
 
     void Update()
@@ -81,7 +81,7 @@ public class KittyAI : MonoBehaviour
     {
         nextDestination = wanderPoints[currentDestinationIndex].transform.position;
         currentDestinationIndex = (currentDestinationIndex + 1) % wanderPoints.Length;
-        //agent.SetDestination(nextDestination);
+        agent.SetDestination(nextDestination);
     }
 
     void FaceTarget(Vector3 target)
@@ -118,6 +118,8 @@ public class KittyAI : MonoBehaviour
     {
         anim.SetInteger("animState", 1);
 
+        agent.stoppingDistance = 0;
+
         if (Vector3.Distance(transform.position, nextDestination) < .5)
         {
             FindNextPoint();
@@ -131,13 +133,15 @@ public class KittyAI : MonoBehaviour
         canvas.gameObject.SetActive(false);
         kittySpeed = kittyWalkSpeed;
         FaceTarget(nextDestination);
-        //agent.SetDestination(nextDestination);
-        transform.position = Vector3.MoveTowards(transform.position, nextDestination, kittySpeed * Time.deltaTime);
+        agent.SetDestination(nextDestination);
+        //transform.position = Vector3.MoveTowards(transform.position, nextDestination, kittySpeed * Time.deltaTime);
     }
 
     void UpdateRunState()
     {
         anim.SetInteger("animState", 2);
+
+        agent.stoppingDistance = talkDistance;
 
         nextDestination = player.transform.position;
 
@@ -153,7 +157,7 @@ public class KittyAI : MonoBehaviour
         canvas.gameObject.SetActive(true);
         kittySpeed = kittyRunSpeed;
         FaceTarget(nextDestination);
-        //agent.SetDestination(nextDestination);
-        transform.position = Vector3.MoveTowards(transform.position, nextDestination, kittySpeed * Time.deltaTime);
+        agent.SetDestination(nextDestination);
+        //transform.position = Vector3.MoveTowards(transform.position, nextDestination, kittySpeed * Time.deltaTime);
     }
 }
