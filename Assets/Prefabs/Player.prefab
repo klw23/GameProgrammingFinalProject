@@ -91,14 +91,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 344841981455313790}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.64075434, y: -0.54372483, z: -0.48524067, w: 0.24153431}
-  m_LocalPosition: {x: 2.9, y: -43.4, z: -5.5}
+  m_LocalRotation: {x: -0.75466466, y: -0.44376457, z: -0.3399328, w: 0.34351116}
+  m_LocalPosition: {x: 1.98, y: -44.1, z: -5.97}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5028648432443406057}
   m_Father: {fileID: 7897943222874187434}
-  m_LocalEulerAnglesHint: {x: -56.846, y: 138.946, z: -237.72299}
+  m_LocalEulerAnglesHint: {x: -55.102, y: 158.66, z: -229.686}
 --- !u!33 &4047914512336453217
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -161,9 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de4c9031ee91e645a1a2af6fec655fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bob: {fileID: 4637935022667177744}
+  fishingbob: {fileID: 0}
   player: {fileID: 1651233744503252027}
-  projectileSpeed: 5
+  timerBetweenFires: 0.5
 --- !u!120 &2511621427813757910
 LineRenderer:
   serializedVersion: 2
@@ -211,7 +211,7 @@ LineRenderer:
   - {x: 3.6186771, y: 0, z: 2.9112787}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.75
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -266,7 +266,7 @@ LineRenderer:
     generateLightingData: 0
   m_MaskInteraction: 0
   m_UseWorldSpace: 1
-  m_Loop: 0
+  m_Loop: 1
   m_ApplyActiveColorSpace: 1
 --- !u!1 &504774377299889971
 GameObject:
@@ -535,7 +535,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2135142708366376577}
   - component: {fileID: 3136445704873808534}
-  - component: {fileID: 8840109226411051910}
   - component: {fileID: 3110283783634257352}
   - component: {fileID: 6051069494376526241}
   - component: {fileID: 6858342888837349099}
@@ -555,7 +554,7 @@ Transform:
   m_GameObject: {fileID: 1651233744503252027}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.98426676, z: -0, w: -0.17668882}
-  m_LocalPosition: {x: -13.034092, y: -32.460228, z: 2.5188017}
+  m_LocalPosition: {x: -0.4, y: -13.7, z: -2.2}
   m_LocalScale: {x: 2.4999993, y: 2.4999998, z: 2.4999993}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -584,33 +583,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!54 &8840109226411051910
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651233744503252027}
-  serializedVersion: 4
-  m_Mass: 10
-  m_Drag: 10
-  m_AngularDrag: 10
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 48
-  m_CollisionDetection: 1
 --- !u!143 &3110283783634257352
 CharacterController:
   m_ObjectHideFlags: 0
@@ -668,6 +640,7 @@ MonoBehaviour:
   jumpHeight: 2
   gravity: 9.81
   anim: {fileID: 3136445704873808534}
+  invertControls: 0
 --- !u!1 &1744045334496369452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,7 +1673,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &7004507947052824858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1949,7 +1922,7 @@ MonoBehaviour:
   tipOfFishingRod: {fileID: 5028648432443406057}
   Xoffset: 1
   Yoffset: 9
-  Zoffset: 2.5
+  Zoffset: 3
   smoothSpeed: 0.125
 --- !u!1 &6124351284727965623
 GameObject:

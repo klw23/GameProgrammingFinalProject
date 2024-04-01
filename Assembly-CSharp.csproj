@@ -61,12 +61,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\DirectionalLightBehavior.cs" />
-    <Compile Include="Assets\Scripts\ShootProjectile.cs" />
     <Compile Include="Assets\Scripts\FishSpawnManager.cs" />
     <Compile Include="Assets\Scripts\Dialogue.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\GerstnerDisplace.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\MeshContainer.cs" />
     <Compile Include="Assets\Scripts\FishingBobBehavior.cs" />
+    <Compile Include="Assets\OldScripts\ShootProjectile.cs" />
     <Compile Include="Assets\Scripts\GrayFishSpawner.cs" />
     <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\WaterFloat.cs" />
@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\PlayerAndRodController.cs" />
     <Compile Include="Assets\Scripts\LootSpawner.cs" />
     <Compile Include="Assets\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\Scripts\SwapPole.cs" />
     <Compile Include="Assets\WaterRelatedAssets\Water Float\Standard Assets\Environment\Water\Water\Scripts\SpecularLighting.cs" />
     <Compile Include="Assets\Scripts\LevelManagerBehavior.cs" />
     <Compile Include="Assets\Scripts\PlayerBarrier.cs" />
