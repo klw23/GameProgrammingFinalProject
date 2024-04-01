@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.7000359, g: 0.6798595, b: 0.7119645, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1186,22 +1186,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2135142708366376577, guid: f5dfa12e24ff1c6418ffa79098bd39c0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135142708366376577, guid: f5dfa12e24ff1c6418ffa79098bd39c0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -13.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135142708366376577, guid: f5dfa12e24ff1c6418ffa79098bd39c0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5889362400893217527, guid: f5dfa12e24ff1c6418ffa79098bd39c0, type: 3}
-      propertyPath: Zoffset
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6858342888837349099, guid: f5dfa12e24ff1c6418ffa79098bd39c0, type: 3}
       propertyPath: invertControls
       value: 1
@@ -1246,21 +1230,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7635832327529115055, guid: f5dfa12e24ff1c6418ffa79098bd39c0, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8237907698533374140, guid: f5dfa12e24ff1c6418ffa79098bd39c0, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8840109226411051910, guid: f5dfa12e24ff1c6418ffa79098bd39c0, type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8840109226411051910, guid: f5dfa12e24ff1c6418ffa79098bd39c0, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

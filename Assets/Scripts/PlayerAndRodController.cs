@@ -18,6 +18,7 @@ public class PlayerAndRodController : MonoBehaviour
     // private variables
     CharacterController controller;
     Vector3 input, moveDirection;
+    float moveHorizontal, moveVertical;
 
     void Start()
     {
@@ -26,11 +27,14 @@ public class PlayerAndRodController : MonoBehaviour
 
     void Update()
     {
+        moveHorizontal = Input.GetAxis("Horizontal");
+        moveVertical = Input.GetAxis("Vertical");
+
         if (PoleBehavior.isReeledIn)
         {
             if (controller.isGrounded)
             {
-                if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+                if (moveHorizontal != 0 || moveVertical != 0)
                 {
                     anim.SetInteger("MichelleMovement", 1);
                     onGroundMove();
@@ -45,7 +49,7 @@ public class PlayerAndRodController : MonoBehaviour
                 else
                 {
                     anim.SetInteger("MichelleMovement", 0);
-                    //moveDirection = Vector3.zero;
+                    moveDirection = Vector3.zero;
                     isWalking = false;
                 }
             } 
@@ -61,6 +65,7 @@ public class PlayerAndRodController : MonoBehaviour
         {
             anim.SetInteger("MichelleMovement", 0);
             moveDirection = Vector3.zero;
+            isWalking = false;
         }
 
         moveDirection.y -= gravity * Time.deltaTime;
@@ -69,8 +74,6 @@ public class PlayerAndRodController : MonoBehaviour
 
     void onGroundMove()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
 
         if (moveHorizontal > 0 )
         {
