@@ -14,6 +14,8 @@ public class LevelManagerBehavior : MonoBehaviour
     public Text GameOverText;
 
     public Text addedTimeText;
+    public Text boostedModeText;
+
     public Slider moneySlider;
     public string nextLevel;
     public static bool isGameOver = false;
@@ -97,6 +99,38 @@ public class LevelManagerBehavior : MonoBehaviour
 
         addedTimeText.gameObject.SetActive(false); // Hide the text after fading
     }
+
+    public void ShowBoostedMode()
+    {
+        boostedModeText.text = "Boosted Mode: 10 seconds!";
+        boostedModeText.gameObject.SetActive(true);
+        StartCoroutine(FadeOutBoostedTimeText());
+    }
+
+    IEnumerator FadeOutBoostedTimeText()
+    {
+        float duration = 2f; // Duration in seconds
+        float startTime = Time.time;
+
+        // Ensure the text is fully opaque at the start
+        Color textColor = boostedModeText.color;
+        textColor.a = 1;
+        boostedModeText.color = textColor;
+
+        // Gradually fade the text
+        while (Time.time < startTime + duration)
+        {
+            // Fade the text based on the elapsed time
+            float t = (Time.time - startTime) / duration;
+            textColor.a = Mathf.Lerp(1, 0, t);
+            boostedModeText.color = textColor;
+            yield return null;
+        }
+
+        boostedModeText.gameObject.SetActive(false); // Hide the text after fading
+    }
+
+
     void LevelLost()
     {
         isGameOver = true;
