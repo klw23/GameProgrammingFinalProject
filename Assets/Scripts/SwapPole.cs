@@ -6,6 +6,8 @@ public class SwapPole : MonoBehaviour
 {
     public Color[] fishingPoleColor;
     public float[] fishingPoleSpeed;
+    public GameObject[] fishingPoleUI;
+    public GameObject[] fishingPoleStars;
 
     int activePoleInt;
     int totalNumOfPoles;
@@ -26,25 +28,25 @@ public class SwapPole : MonoBehaviour
 
         //must be at least one 
         activePoleInt = 0;
-        updatePoles();
+        updatePole();
+        updatePoleUI();
     }
 
     // Update is called once per frame
     void Update()
     {
-        print("swipswap" + PoleBehavior.isReeledIn + Input.GetMouseButton(2));
         if (PoleBehavior.isReeledIn) // if pole is reeled in
         {
             if (Input.GetMouseButtonDown(1)) // Right Click
             {
-                print("hit");
                 activePoleInt = (activePoleInt + 1) % totalNumOfPoles;
-                updatePoles();
+                updatePole();
+                updatePoleUI();
             }
         }
     }
 
-    void updatePoles()
+    void updatePole()
     {
         // Update Bob color to indicate new fishing rod
         Color currColor = fishingPoleColor[activePoleInt];
@@ -53,6 +55,33 @@ public class SwapPole : MonoBehaviour
         // Update Fishing Pole Speed 
         float currSpeed = fishingPoleSpeed[activePoleInt];
         PoleBehavior.projectileSpeed = currSpeed;
+    }
+
+    void updatePoleUI()
+    {
+        for(int i = 0; i < totalNumOfPoles; i++)
+        {
+            if (i == activePoleInt)
+            {
+                fishingPoleUI[i].SetActive(true);
+            } 
+            else
+            {
+                fishingPoleUI[i].SetActive(false);
+            }
+        }
+
+        for (int i = 0; i < fishingPoleStars.Length; i++)
+        {
+            if ( i <= activePoleInt )
+            {
+                fishingPoleStars[i].SetActive(true);
+            } 
+            else
+            {
+                fishingPoleStars[i].SetActive(false);
+            }
+        }
     }
 }
 
