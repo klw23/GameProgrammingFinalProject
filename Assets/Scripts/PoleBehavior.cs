@@ -10,10 +10,12 @@ public class PoleBehavior : MonoBehaviour
     public GameObject bob;
     public GameObject player;
     public float projectileSpeed = 10f;
+    public float timerBetweenFires = 2f;
 
     LineRenderer lr;
     Rigidbody bobRB;
-    
+    bool canFire;
+    float timer;
 
     void Start()
     {
@@ -21,22 +23,35 @@ public class PoleBehavior : MonoBehaviour
         lr = transform.GetComponent<LineRenderer>();
         bobRB = bob.GetComponent<Rigidbody>();
         UpdateBobStartingPos();
-
+        canFire = true;
+        timer = timerBetweenFires;
     }
 
     void Update()
     {
+        print(timer);
+        if (!canFire)
+        {
+            timer-= Time.deltaTime;
+            if(timer <= 0)
+            {
+                canFire = true;
+            }
+        }
+
         // Connect the pole and the bob with a line 
         lr.SetPosition(0, transform.GetChild(0).gameObject.transform.position); //RodEndConnection
         lr.SetPosition(1, bob.transform.position); // bob Connection
 
-        if (Input.GetButtonDown("Fire1") && isReeledIn && !PlayerAndRodController.isWalking)
+        if (Input.GetButtonDown("Fire1") && isReeledIn && !PlayerAndRodController.isWalking && canFire)
         {
             castBob();
+            timer = timerBetweenFires;
         } 
         else if (Input.GetButtonDown("Fire1") && !isReeledIn)
         {
             reelBob();
+            canFire = false;
         } 
         else if (isReeledIn)
         {
