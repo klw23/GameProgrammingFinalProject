@@ -18,6 +18,8 @@ TagManager:
   - DialogueCanvas
   - StartGameText
   - NPCTextStartCanvas
+  - Obstacle
+  - Coin
   layers:
   - Default
   - TransparentFX

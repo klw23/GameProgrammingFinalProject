@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class GrayFishSpawner : MonoBehaviour
 {
+
+    private float countdown = 10f;
+    private bool isBoostedModeOn = false;
+
     public GameObject fishPrefab;
-    private int maxGrayFishSpawned = 5;
+    private int maxGrayFishSpawned = 3;
     private GameObject fishParent;
 
     private int grayFishSpawned = 1;
@@ -19,12 +23,49 @@ public class GrayFishSpawner : MonoBehaviour
         InvokeRepeating("SpawnGrayFish", 5f, 10f);
     }
 
+    private void Update()
+    {
+
+        if (isBoostedModeOn)
+        {
+            countdown -= Time.deltaTime;
+        }
+    }
+
+
+    public void startBoostedMode()
+    {
+        print("im in boosted mode!");
+        isBoostedModeOn = true;
+        InvokeRepeating("SpawnBoostedFish", 0f, 3f);
+    }
+
+    private void SpawnBoostedFish()
+    {
+        if (countdown > 0)
+        {
+            int randomSpawnPoint = Random.Range(0, spawnPoints.Length - 1);
+            Vector3 spawnPosition = spawnPoints[randomSpawnPoint].transform.position;
+
+            GameObject newFish = Instantiate(fishPrefab, spawnPosition, Quaternion.identity);
+            if (fishParent != null)
+            {
+                newFish.transform.SetParent(fishParent.transform);
+            }
+        }
+        else
+        {
+            countdown = 10f;
+            isBoostedModeOn = false;
+            print("im no longer in boosted mode!");
+
+        }
+
+    }
 
 
     void SpawnGrayFish()
     {
-
-
         if (grayFishSpawned < maxGrayFishSpawned)
         {
             int randomSpawnPoint = Random.Range(0, spawnPoints.Length - 1);
