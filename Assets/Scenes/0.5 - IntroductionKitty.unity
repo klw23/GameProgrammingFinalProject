@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6984482, g: 0.6783524, b: 0.7101499, a: 1}
+  m_IndirectSpecularColor: {r: 0.7000359, g: 0.6798595, b: 0.7119645, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -629,6 +629,19 @@ PrefabInstance:
     - target: {fileID: 7918830363423155715, guid: cf1de2d886c3d2b4692c9e201e095529, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200507653383353086, guid: cf1de2d886c3d2b4692c9e201e095529, type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200507653383353086, guid: cf1de2d886c3d2b4692c9e201e095529, type: 3}
+      propertyPath: dialogue.sentences.Array.data[3]
+      value: Left click to cast your line and left click again to reel your fish
+        in.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200507653383353086, guid: cf1de2d886c3d2b4692c9e201e095529, type: 3}
+      propertyPath: dialogue.sentences.Array.data[4]
+      value: Good luck! meow...
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1593,7 +1606,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4922520887095459788, guid: dfdf5135b18ac50478f400838d2e0d98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.31
+      value: 4.63
       objectReference: {fileID: 0}
     - target: {fileID: 4922520887095459788, guid: dfdf5135b18ac50478f400838d2e0d98, type: 3}
       propertyPath: m_LocalPosition.z
@@ -23118,9 +23131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de4c9031ee91e645a1a2af6fec655fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bob: {fileID: 1977138001}
+  fishingbob: {fileID: 0}
   player: {fileID: 1325159883}
-  projectileSpeed: 5
+  timerBetweenFires: 2
 --- !u!1001 &1911460766
 PrefabInstance:
   m_ObjectHideFlags: 0
