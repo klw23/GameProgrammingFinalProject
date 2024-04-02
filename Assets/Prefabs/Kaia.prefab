@@ -206,6 +206,7 @@ MonoBehaviour:
   jumpHeight: 2
   gravity: 9.81
   anim: {fileID: 8248103650497336283}
+  invertControls: 0
 --- !u!4 &6938262786931617167 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2563496969622287784, guid: a7cc9c6fb7c584a46b524a5238a8186e, type: 3}
@@ -412,9 +413,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de4c9031ee91e645a1a2af6fec655fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bob: {fileID: 1849997604765113949}
+  fishingbob: {fileID: 0}
   player: {fileID: 5700323502250501494}
-  projectileSpeed: 5
+  timerBetweenFires: 2
 --- !u!120 &8875134921223156379
 LineRenderer:
   serializedVersion: 2

@@ -17,16 +17,15 @@ public class KittyAI : MonoBehaviour
     Vector3 nextDestination;
     Animator anim;
     public GameObject player;
-    public float kittyWalkSpeed = 0.8f;
-
-    public float kittyRunSpeed = 1.5f;
-    float kittySpeed;
     int currentDestinationIndex = 0;
     public float talkDistance = 1;
     public float runDistance = 4;
     float distanceToPlayer;
     public Canvas canvas;
     NavMeshAgent agent;
+    public Transform npcEyes;
+    public Transform chaseForward; //penguin's eyes face downward when in chase mode
+    public float fieldOfView = 45f;
 
     void Start()
     {
@@ -125,16 +124,14 @@ public class KittyAI : MonoBehaviour
             FindNextPoint();
 
         }
-        else if (distanceToPlayer <= runDistance)
+        else if (IsPlayerInClearFOV())
         {
             currentState = FSMStates.Run;
         }
 
         canvas.gameObject.SetActive(false);
-        kittySpeed = kittyWalkSpeed;
         FaceTarget(nextDestination);
         agent.SetDestination(nextDestination);
-        //transform.position = Vector3.MoveTowards(transform.position, nextDestination, kittySpeed * Time.deltaTime);
     }
 
     void UpdateRunState()
@@ -151,13 +148,55 @@ public class KittyAI : MonoBehaviour
         }
         else if (distanceToPlayer > runDistance)
         {
+            FindNextPoint();
             currentState = FSMStates.Walk;
         }
 
         canvas.gameObject.SetActive(true);
-        kittySpeed = kittyRunSpeed;
         FaceTarget(nextDestination);
         agent.SetDestination(nextDestination);
-        //transform.position = Vector3.MoveTowards(transform.position, nextDestination, kittySpeed * Time.deltaTime);
+    }
+
+    private void OnDrawGizmos() {
+
+        Vector3 frontRayPoint = npcEyes.position + (npcEyes.forward * runDistance);
+        Vector3 leftRayPoint = Quaternion.Euler(0, fieldOfView * 0.5f, 0) * frontRayPoint;
+        Vector3 rightRayPoint = Quaternion.Euler(0, -fieldOfView * 0.5f, 0) * frontRayPoint;
+
+        Vector3 front = chaseForward.position + (chaseForward.forward * runDistance);
+
+        Debug.DrawLine(npcEyes.position, frontRayPoint, Color.cyan);
+        Debug.DrawLine(npcEyes.position, leftRayPoint, Color.yellow);
+        Debug.DrawLine(npcEyes.position, rightRayPoint, Color.yellow);
+
+        Debug.DrawLine(chaseForward.position, front, Color.red);
+    }
+
+    bool IsPlayerInClearFOV()
+    {
+        RaycastHit hit;
+
+        Vector3 directionToPlayer = player.transform.position - npcEyes.position;
+        //directionToPlayer.y = npcEyes.position.y;
+
+        if (Vector3.Angle(directionToPlayer, npcEyes.forward) <= fieldOfView)
+        {
+            if (Physics.Raycast(npcEyes.position, directionToPlayer, out hit, runDistance))
+            {
+                print(Physics.Raycast(npcEyes.position, directionToPlayer, out hit, runDistance) + "hit");
+                Debug.DrawRay(npcEyes.position, directionToPlayer, Color.green);
+                print(player.transform.position + " position");
+                print(directionToPlayer);
+                print(hit.collider.gameObject.name);
+                if (hit.collider.CompareTag("Player"))
+                {
+                    print(hit.collider.CompareTag("Player") + "player");
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return false;
     }
 }
