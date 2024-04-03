@@ -29,10 +29,12 @@ public class LootSpawner : MonoBehaviour
             if (islandCollider != null)
             {
                 // Use the island's collider bounds
-                float spawnX = Random.Range(islandCollider.bounds.min.x, islandCollider.bounds.max.x);
-                float spawnZ = Random.Range(islandCollider.bounds.min.z, islandCollider.bounds.max.z);
+                float spawnX = Random.Range(islandCollider.bounds.min.x + 8f, islandCollider.bounds.max.x - 8f);
+                float spawnZ = Random.Range(islandCollider.bounds.min.z + 8f, islandCollider.bounds.max.z - 8f);
 
-                float spawnY = islandCollider.bounds.max.y + 0.5f;
+                //float spawnY = islandCollider.bounds.max.y + 0.5f;
+
+                float spawnY = 5f;
 
                 Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
 

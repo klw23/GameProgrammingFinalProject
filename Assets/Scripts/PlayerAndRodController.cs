@@ -11,11 +11,15 @@ public class PlayerAndRodController : MonoBehaviour
     public float rotationSpeed = 700;
     public float jumpHeight = 2f;
     public float gravity = 9.81f;
+    public float airControl = 10;
     public Animator anim;
+
+    public bool invertControls = false;
 
     // private variables
     CharacterController controller;
     Vector3 input, moveDirection;
+    float moveHorizontal, moveVertical;
 
     void Start()
     {
@@ -24,52 +28,90 @@ public class PlayerAndRodController : MonoBehaviour
 
     void Update()
     {
+        moveHorizontal = Input.GetAxis("Horizontal");
+        moveVertical = Input.GetAxis("Vertical");
+
+        input = (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
+
+        input *= moveSpeed;
+
         if (PoleBehavior.isReeledIn)
         {
             if (controller.isGrounded)
             {
-                if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+                if (moveHorizontal != 0 || moveVertical != 0)
                 {
-                    anim.SetInteger("MichelleMovement", 1);
-                    onGroundMove();
+                    onGroundAnimate();
+                    onMove();
                     isWalking = true;
                 } 
                 else if (Input.GetButton("Jump"))
                 {
-                    anim.SetInteger("MichelleMovement", 2);
+                    anim.SetInteger("MichelleMovement", 5);
                     moveDirection.y = Mathf.Sqrt(2 * jumpHeight * gravity);
                     isWalking = false;
                 }
                 else
                 {
                     anim.SetInteger("MichelleMovement", 0);
-                    //moveDirection = Vector3.zero;
+                    moveDirection = Vector3.zero;
                     isWalking = false;
                 }
             } 
             else
             {
                 // midair 
+                Debug.Log(controller.isGrounded + "hit midair");
                 input.y = moveDirection.y;
-                moveDirection = Vector3.Lerp(moveDirection, input, Time.deltaTime);
-                isWalking = false;
+                moveDirection = Vector3.Lerp(moveDirection, input, airControl * Time.deltaTime);
+               
             }
-
-            moveDirection.y -= gravity * Time.deltaTime;
-            controller.Move(moveDirection * Time.deltaTime);
+        } 
+        else
+        {
+            anim.SetInteger("MichelleMovement", 0);
+            moveDirection = Vector3.zero;
         }
+
+        moveDirection.y -= gravity * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime); //allows us to move the character based on keyboard input
     }
 
-    void onGroundMove()
+    void onMove()
     {
-        print("hit");
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
 
-        moveDirection = new Vector3(-moveHorizontal, 0, -moveVertical);
+        if(invertControls)
+        {
+            moveDirection = -input;
+        }
+        else
+        {
+            moveDirection = input;
+        }
+      
         moveDirection.Normalize();
 
-        controller.Move(moveDirection * moveSpeed * Time.deltaTime); //allows us to move the character based on keyboard input
+        moveDirection = moveDirection * moveSpeed;
 
+    }
+
+    void onGroundAnimate()
+    {
+        if (moveHorizontal > 0)
+        {
+            anim.SetInteger("MichelleMovement", 3);
+        }
+        else if (moveHorizontal < 0)
+        {
+            anim.SetInteger("MichelleMovement", 4);
+        }
+        else if (moveVertical > 0)
+        {
+            anim.SetInteger("MichelleMovement", 1);
+        }
+        else if (moveVertical < 0)
+        {
+            anim.SetInteger("MichelleMovement", 2);
+        }
     }
 }
