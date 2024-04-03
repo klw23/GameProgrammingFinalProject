@@ -21,6 +21,7 @@ public class LevelManagerBehavior : MonoBehaviour
     public static bool isGameOver = false;
     public int winScore = 100;
 
+    public Text boostedCoinText;
 
     public AudioClip gameOverSFX;
     public AudioClip gameWonSFX;
@@ -79,7 +80,7 @@ public class LevelManagerBehavior : MonoBehaviour
 
     IEnumerator FadeOutAddedTimeText()
     {
-        float duration = 3f; // Duration in seconds
+        float duration = 5f; // Duration in seconds
         float startTime = Time.time;
 
         // Ensure the text is fully opaque at the start
@@ -109,7 +110,7 @@ public class LevelManagerBehavior : MonoBehaviour
 
     IEnumerator FadeOutBoostedTimeText()
     {
-        float duration = 3f; // Duration in seconds
+        float duration = 5f; // Duration in seconds
         float startTime = Time.time;
 
         // Ensure the text is fully opaque at the start
@@ -130,6 +131,37 @@ public class LevelManagerBehavior : MonoBehaviour
         boostedModeText.gameObject.SetActive(false); // Hide the text after fading
     }
 
+
+
+    public void ShowBoostedCoinText()
+    {
+        boostedCoinText.text = "Boosted Coin Spawned!";
+        boostedCoinText.gameObject.SetActive(true);
+        StartCoroutine(FadeOutBoostedCoinText());
+    }
+
+    IEnumerator FadeOutBoostedCoinText()
+    {
+        float duration = 5f; // Duration in seconds
+        float startTime = Time.time;
+
+        // Ensure the text is fully opaque at the start
+        Color textColor = boostedCoinText.color;
+        textColor.a = 1;
+        boostedCoinText.color = textColor;
+
+        // Gradually fade the text
+        while (Time.time < startTime + duration)
+        {
+            // Fade the text based on the elapsed time
+            float t = (Time.time - startTime) / duration;
+            textColor.a = Mathf.Lerp(1, 0, t);
+            boostedCoinText.color = textColor;
+            yield return null;
+        }
+
+        boostedCoinText.gameObject.SetActive(false); // Hide the text after fading
+    }
 
     void LevelLost()
     {

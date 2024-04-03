@@ -27,6 +27,8 @@ public class BoosterLootSpawner : MonoBehaviour
             Collider iceCollider = obstaclePrefab.GetComponent<Collider>();
             if (iceCollider != null)
             {
+                var levelManager = FindObjectOfType<LevelManagerBehavior>();
+                levelManager.ShowBoostedCoinText();
                 // Use the island's collider bounds
                 float spawnX = Random.Range(iceCollider.bounds.min.x + 3f, iceCollider.bounds.max.x - 3f);
                 float spawnZ = Random.Range(iceCollider.bounds.min.z + 3f, iceCollider.bounds.max.z - 3f);
