@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7811022008635801070}
   - component: {fileID: 2502346955870531028}
   - component: {fileID: 4562363578621464137}
+  - component: {fileID: 9037150325621903875}
   m_Layer: 0
   m_Name: PirateCoin (Silver)
   m_TagString: Coin
@@ -106,3 +107,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -127844609115117539, guid: 5d0dbe9cd045eb6458b6aa0a6ffc0235, type: 3}
+--- !u!114 &9037150325621903875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8351625517735940761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa1e19d4ae5d4077b6ca79546031fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
