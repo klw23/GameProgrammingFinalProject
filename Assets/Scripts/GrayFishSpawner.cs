@@ -42,7 +42,7 @@ public class GrayFishSpawner : MonoBehaviour
 
     private void SpawnBoostedFish()
     {
-        if (countdown > 0)
+        if (countdown > 0 && isBoostedModeOn)
         {
             int randomSpawnPoint = Random.Range(0, spawnPoints.Length - 1);
             Vector3 spawnPosition = spawnPoints[randomSpawnPoint].transform.position;
@@ -55,8 +55,8 @@ public class GrayFishSpawner : MonoBehaviour
         }
         else
         {
-            countdown = 10f;
             isBoostedModeOn = false;
+            countdown = 10f;
             print("im no longer in boosted mode!");
 
         }
