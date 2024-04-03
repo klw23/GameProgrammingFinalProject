@@ -11,6 +11,7 @@ public class PlayerAndRodController : MonoBehaviour
     public float rotationSpeed = 700;
     public float jumpHeight = 2f;
     public float gravity = 9.81f;
+    public float airControl = 10;
     public Animator anim;
 
     public bool invertControls = false;
@@ -30,14 +31,18 @@ public class PlayerAndRodController : MonoBehaviour
         moveHorizontal = Input.GetAxis("Horizontal");
         moveVertical = Input.GetAxis("Vertical");
 
+        input = (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
+
+        input *= moveSpeed;
+
         if (PoleBehavior.isReeledIn)
         {
             if (controller.isGrounded)
             {
                 if (moveHorizontal != 0 || moveVertical != 0)
                 {
-                    anim.SetInteger("MichelleMovement", 1);
-                    onGroundMove();
+                    onGroundAnimate();
+                    onMove();
                     isWalking = true;
                 } 
                 else if (Input.GetButton("Jump"))
@@ -56,30 +61,47 @@ public class PlayerAndRodController : MonoBehaviour
             else
             {
                 // midair 
+                Debug.Log(controller.isGrounded + "hit midair");
                 input.y = moveDirection.y;
-                moveDirection = Vector3.Lerp(moveDirection, input, Time.deltaTime);
-                isWalking = false;
+                moveDirection = Vector3.Lerp(moveDirection, input, airControl * Time.deltaTime);
+               
             }
         } 
         else
         {
             anim.SetInteger("MichelleMovement", 0);
             moveDirection = Vector3.zero;
-            isWalking = false;
         }
 
         moveDirection.y -= gravity * Time.deltaTime;
-        controller.Move(moveDirection * Time.deltaTime);
+        controller.Move(moveDirection * Time.deltaTime); //allows us to move the character based on keyboard input
     }
 
-    void onGroundMove()
+    void onMove()
     {
 
-        if (moveHorizontal > 0 )
+        if(invertControls)
+        {
+            moveDirection = -input;
+        }
+        else
+        {
+            moveDirection = input;
+        }
+      
+        moveDirection.Normalize();
+
+        moveDirection = moveDirection * moveSpeed;
+
+    }
+
+    void onGroundAnimate()
+    {
+        if (moveHorizontal > 0)
         {
             anim.SetInteger("MichelleMovement", 3);
-        } 
-        else if (moveHorizontal < 0 )
+        }
+        else if (moveHorizontal < 0)
         {
             anim.SetInteger("MichelleMovement", 4);
         }
@@ -91,19 +113,5 @@ public class PlayerAndRodController : MonoBehaviour
         {
             anim.SetInteger("MichelleMovement", 2);
         }
-
-        if(invertControls)
-        {
-            moveDirection = new Vector3(-moveHorizontal, 0, -moveVertical);
-        }
-        else
-        {
-            moveDirection = new Vector3(moveHorizontal, 0, moveVertical);
-        }
-      
-        moveDirection.Normalize();
-
-        controller.Move(moveDirection * moveSpeed * Time.deltaTime); //allows us to move the character based on keyboard input
-
     }
 }

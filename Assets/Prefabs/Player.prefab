@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 6805065457210819465}
   - component: {fileID: 2511621427813757910}
   m_Layer: 0
-  m_Name: Fishing_Rod
+  m_Name: FishingPole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -604,8 +604,8 @@ CharacterController:
   serializedVersion: 3
   m_Height: 1.7
   m_Radius: 0.3
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_SlopeLimit: 50
+  m_StepOffset: 1
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.85, z: 0}
@@ -637,8 +637,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rotationSpeed: 700
-  jumpHeight: 2
+  jumpHeight: 4
   gravity: 9.81
+  airControl: 5
   anim: {fileID: 3136445704873808534}
   invertControls: 0
 --- !u!1 &1744045334496369452
@@ -1840,13 +1841,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5959575651395278056}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.09270786, y: 0.87140036, z: -0.42703518, w: -0.2229524}
-  m_LocalPosition: {x: 0.6, y: -5.6, z: -1.8}
+  m_LocalRotation: {x: 0.020975899, y: 0.8994124, z: -0.4364789, w: 0.010179466}
+  m_LocalPosition: {x: -13.3, y: -5.6, z: 20.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7468484405357985845}
-  m_LocalEulerAnglesHint: {x: 51.774, y: 210, z: 2.672}
+  m_LocalEulerAnglesHint: {x: 51.774, y: 180, z: 2.672}
 --- !u!20 &2272405540218351361
 Camera:
   m_ObjectHideFlags: 0
@@ -1921,8 +1922,8 @@ MonoBehaviour:
   player: {fileID: 2135142708366376577}
   tipOfFishingRod: {fileID: 5028648432443406057}
   Xoffset: 1
-  Yoffset: 9
-  Zoffset: 3
+  Yoffset: 12
+  Zoffset: -5
   smoothSpeed: 0.125
 --- !u!1 &6124351284727965623
 GameObject:
@@ -2358,8 +2359,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7897943222874187434}
+  - component: {fileID: 5562102756245273682}
   m_Layer: 0
-  m_Name: FishingRodComponent (1)
+  m_Name: FishingRod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2382,6 +2384,31 @@ Transform:
   - {fileID: 1117683634857931204}
   m_Father: {fileID: 4159192380822285506}
   m_LocalEulerAnglesHint: {x: -13.728, y: 56.674, z: -4.925}
+--- !u!114 &5562102756245273682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226340049437855451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a80966cbfeab643a1403991790d74f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishingPoleColor:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 1, a: 0}
+  fishingPoleSpeed:
+  - 5
+  - 7
+  fishingPoleUI:
+  - {fileID: 0}
+  - {fileID: 0}
+  fishingPoleStars:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &7267465598426454742
 GameObject:
   m_ObjectHideFlags: 0
