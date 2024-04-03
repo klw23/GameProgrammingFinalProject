@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.7000359, g: 0.6798595, b: 0.7119645, a: 1}
+  m_IndirectSpecularColor: {r: 0.6984482, g: 0.6783524, b: 0.7101499, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2260,6 +2260,7 @@ MonoBehaviour:
   scoreText: {fileID: 772462176}
   GameOverText: {fileID: 422759366}
   addedTimeText: {fileID: 233164781}
+  boostedModeText: {fileID: 0}
   moneySlider: {fileID: 1034460077}
   nextLevel: 0-OpeningScene
   winScore: 300
@@ -23009,6 +23010,10 @@ PrefabInstance:
       value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 6858342888837349099, guid: f5dfa12e24ff1c6418ffa79098bd39c0, type: 3}
+      propertyPath: airControl
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858342888837349099, guid: f5dfa12e24ff1c6418ffa79098bd39c0, type: 3}
       propertyPath: jumpHeight
       value: 4
       objectReference: {fileID: 0}
@@ -23026,7 +23031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7468484405357985845, guid: f5dfa12e24ff1c6418ffa79098bd39c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.2
+      value: 16.56
       objectReference: {fileID: 0}
     - target: {fileID: 7468484405357985845, guid: f5dfa12e24ff1c6418ffa79098bd39c0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -23824,7 +23829,7 @@ Transform:
   m_GameObject: {fileID: 1884792653}
   serializedVersion: 2
   m_LocalRotation: {x: -0.020975897, y: -0.89941233, z: -0.43647897, w: 0.0101794675}
-  m_LocalPosition: {x: -6.9998627, y: -8.915014, z: 19.944017}
+  m_LocalPosition: {x: -6.9998627, y: -8.275013, z: 19.944017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
