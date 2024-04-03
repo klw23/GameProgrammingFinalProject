@@ -43,7 +43,7 @@ public class LevelManagerBehavior : MonoBehaviour
         {
             if (countdown > 0)
             {
-                if (currentScore == winScore)
+                if (currentScore >= winScore)
                 {
                     LevelBeat();
                 }
@@ -79,7 +79,7 @@ public class LevelManagerBehavior : MonoBehaviour
 
     IEnumerator FadeOutAddedTimeText()
     {
-        float duration = 2f; // Duration in seconds
+        float duration = 3f; // Duration in seconds
         float startTime = Time.time;
 
         // Ensure the text is fully opaque at the start
@@ -109,7 +109,7 @@ public class LevelManagerBehavior : MonoBehaviour
 
     IEnumerator FadeOutBoostedTimeText()
     {
-        float duration = 2f; // Duration in seconds
+        float duration = 3f; // Duration in seconds
         float startTime = Time.time;
 
         // Ensure the text is fully opaque at the start
