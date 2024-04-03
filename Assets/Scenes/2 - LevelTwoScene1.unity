@@ -2294,8 +2294,8 @@ MonoBehaviour:
   addedTimeText: {fileID: 233164781}
   boostedModeText: {fileID: 1559075276}
   moneySlider: {fileID: 1034460077}
-  nextLevel: 0-OpeningScene
-  winScore: 300
+  nextLevel: 
+  winScore: 400
   gameOverSFX: {fileID: 8300000, guid: 2f85f0d7e70db404d8d79c3f1da98cc1, type: 3}
   gameWonSFX: {fileID: 8300000, guid: 8e9c026771aa0462cb806474fce90fb9, type: 3}
 --- !u!4 &980347346
@@ -23537,7 +23537,7 @@ MonoBehaviour:
   lootPrefab: {fileID: 8351625517735940761, guid: 0b4a7e3e90afd4c67acea938af72ca83, type: 3}
   obstaclePrefab: {fileID: 736785415}
   maxSpawnTimes: 2
-  lootSFX: {fileID: 8300000, guid: 7a02d177e71734372bb8c6a42a7e7fe7, type: 3}
+  lootSFX: {fileID: 8300000, guid: 423accc2b34cf4bd0b4aea748defdcfa, type: 3}
 --- !u!1001 &1827167821
 PrefabInstance:
   m_ObjectHideFlags: 0

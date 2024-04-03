@@ -17,7 +17,7 @@ public class BoosterLootSpawner : MonoBehaviour
 
     void Start()
     {
-        SpawnLoot();
+        Invoke("SpawnLoot", 30f);
     }
 
     void SpawnLoot()
@@ -60,7 +60,7 @@ public class BoosterLootSpawner : MonoBehaviour
        if (isLootInGame) {
             isLootInGame = false;
             currentSpawnTime++;
-            Invoke("SpawnLoot", 20f);
+            Invoke("SpawnLoot", 30f);
 
           
             }
