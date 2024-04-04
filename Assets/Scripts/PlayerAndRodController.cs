@@ -7,12 +7,14 @@ public class PlayerAndRodController : MonoBehaviour
 
     // public variables
     public static bool isWalking = false;
+    public static bool isChatting = false;
     public float moveSpeed = 5;
     public float rotationSpeed = 700;
     public float jumpHeight = 2f;
     public float gravity = 9.81f;
     public float airControl = 10;
     public Animator anim;
+    public Transform cutSceneCharacter;
 
     public bool isCutScene=false;
     public bool invertControls = false;
@@ -89,6 +91,11 @@ public class PlayerAndRodController : MonoBehaviour
 
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime); //allows us to move the character based on keyboard input
+
+        if (isChatting)
+        {
+            FaceTarget(cutSceneCharacter.position);
+        }
     }
 
     void onMove()
@@ -127,5 +134,13 @@ public class PlayerAndRodController : MonoBehaviour
         {
             anim.SetInteger("MichelleMovement", 2);
         }
+    }
+
+    void FaceTarget(Vector3 target)
+    {
+        Vector3 directionToTarget = (target - transform.position).normalized;
+        directionToTarget.y = 0;
+        Quaternion lookRotation = Quaternion.LookRotation(directionToTarget);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 10 * Time.deltaTime);
     }
 }

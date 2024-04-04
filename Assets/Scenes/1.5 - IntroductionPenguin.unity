@@ -23770,6 +23770,14 @@ PrefabInstance:
       propertyPath: invertControls
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 494402913897775014, guid: dfdf5135b18ac50478f400838d2e0d98, type: 3}
+      propertyPath: cutSceneCharacter
+      value: 
+      objectReference: {fileID: 328876589}
+    - target: {fileID: 722957434073739500, guid: dfdf5135b18ac50478f400838d2e0d98, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4922520887095459788, guid: dfdf5135b18ac50478f400838d2e0d98, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
