@@ -24,7 +24,6 @@ public class FishSpawnManager : MonoBehaviour
 
     void SpawnFishNearPlayer()
     {
-        print("numOfFishSpawned" + FishAI.numberOfFishSpawned + " max" + maxFishInGame + "Total" + totalFishSpawned);
 
         if (FishAI.numberOfFishSpawned < maxFishInGame && totalFishSpawned < maxTotalFish)
         {

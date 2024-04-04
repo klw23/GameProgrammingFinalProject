@@ -14,6 +14,7 @@ public class PlayerAndRodController : MonoBehaviour
     public float airControl = 10;
     public Animator anim;
 
+    public bool isCutScene=false;
     public bool invertControls = false;
 
     // private variables
@@ -53,7 +54,13 @@ public class PlayerAndRodController : MonoBehaviour
                 }
                 else
                 {
-                    anim.SetInteger("MichelleMovement", 0);
+                    if(isCutScene)
+                    {
+                        anim.SetInteger("MichelleMovement", 6);
+                    } else
+                    {
+                        anim.SetInteger("MichelleMovement", 0);
+                    }
                     moveDirection = Vector3.zero;
                     isWalking = false;
                 }
@@ -69,7 +76,14 @@ public class PlayerAndRodController : MonoBehaviour
         } 
         else
         {
-            anim.SetInteger("MichelleMovement", 0);
+            if (isCutScene)
+            {
+                anim.SetInteger("MichelleMovement", 6);
+            }
+            else
+            {
+                anim.SetInteger("MichelleMovement", 0);
+            }
             moveDirection = Vector3.zero;
         }
 
