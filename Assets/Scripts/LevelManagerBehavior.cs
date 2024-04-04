@@ -17,7 +17,6 @@ public class LevelManagerBehavior : MonoBehaviour
     public Text boostedModeText;
 
     public Slider moneySlider;
-    public string nextLevel;
     public static bool isGameOver = false;
     public int winScore = 100;
 
@@ -25,7 +24,7 @@ public class LevelManagerBehavior : MonoBehaviour
 
     public AudioClip gameOverSFX;
     public AudioClip gameWonSFX;
-    
+
 
     void Start()
     {
@@ -72,7 +71,7 @@ public class LevelManagerBehavior : MonoBehaviour
 
     public void ShowAddedTime(int amount)
     {
-        addedTimeText.text = "+" + amount.ToString() + "SECONDS"; 
+        addedTimeText.text = "+" + amount.ToString() + "SECONDS";
         addedTimeText.gameObject.SetActive(true);
 
         StartCoroutine(FadeOutAddedTimeText()); // Start the fade out coroutine
@@ -181,16 +180,10 @@ public class LevelManagerBehavior : MonoBehaviour
         GameOverText.text = "LEVEL WON!";
         GameOverText.gameObject.SetActive(true);
 
-        if (!string.IsNullOrEmpty(nextLevel))
-        {
-            Invoke("LoadNextLevel", 2);
-        }
+        Camera.main.GetComponent<AudioSource>();
+        AudioSource.PlayClipAtPoint(gameWonSFX, Camera.main.transform.position);
 
-        else 
-        {
-            Camera.main.GetComponent<AudioSource>();
-            AudioSource.PlayClipAtPoint(gameWonSFX, Camera.main.transform.position);
-        }
+        Invoke("LoadNextLevel", 2);
     }
 
     void LoadCurrentLevel()
@@ -200,18 +193,13 @@ public class LevelManagerBehavior : MonoBehaviour
 
     void LoadNextLevel()
     {
-        if (nextLevel != null)
-        {
-            SceneManager.LoadScene(nextLevel);
-        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //loads the next scene according to build order
     }
-    public void IncreaseTime(int amount) 
+    public void IncreaseTime(int amount)
     {
-        countdown += amount; 
-        SetTimerText(); 
+        countdown += amount;
+        SetTimerText();
     }
-
-
 }
 
 
