@@ -16,7 +16,8 @@ public class FishSpawnManager : MonoBehaviour
     {
         fishParent = GameObject.FindGameObjectWithTag("FishParent");
         spawnPoints  = GameObject.FindGameObjectsWithTag("FishSpawnPoint");
-        InvokeRepeating("SpawnFishNearPlayer", 2f, 5f); 
+        InvokeRepeating("SpawnFishNearPlayer", 2f, 5f);
+        FishAI.numberOfFishSpawned = 0;
     }
 
 

@@ -18,10 +18,6 @@ public class MouseLook : MonoBehaviour
             // do not let player move
         } else
         {
-            // Vector3 mousePos = Input.mousePosition;
-            // Vector3 WorldPoint = Camera.main.WorldToScreenPoint(mousePos);
-            // WorldPoint.y = transform.position.y;
-            // transform.LookAt(-WorldPoint);
 
             Vector3 mousePos = Input.mousePosition;
 

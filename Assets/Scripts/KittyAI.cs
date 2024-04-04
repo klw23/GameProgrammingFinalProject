@@ -99,14 +99,17 @@ public class KittyAI : MonoBehaviour
         if (distanceToPlayer <= talkDistance)
         {
             currentState = FSMStates.Idle;
+            PlayerAndRodController.isChatting = true;
         }
         else if (distanceToPlayer > talkDistance && distanceToPlayer <= runDistance)
         {
             currentState = FSMStates.Run;
+            PlayerAndRodController.isChatting = false;
         }
         else if (distanceToPlayer > runDistance)
         {
             currentState = FSMStates.Walk;
+            PlayerAndRodController.isChatting = false;
         }
 
         FaceTarget(nextDestination);
