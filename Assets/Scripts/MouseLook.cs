@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    public float mouseSensitivity = 100f; 
+    //public float mouseSensitivity = 100f; 
     public Transform playerTransform;
+    float mouseSensitivity;
+
     void Start()
     {
-        
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 50.0f);
     }
 
     private void Update()
     {
+
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
+        print("mouse " + mouseSensitivity);
         if (!PoleBehavior.isReeledIn)
         {
             // do not let player move
