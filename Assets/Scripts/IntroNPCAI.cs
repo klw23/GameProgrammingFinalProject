@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class KittyAI : MonoBehaviour
+public class IntroNPCAI : MonoBehaviour
 {
     public enum FSMStates
     {
@@ -17,10 +17,6 @@ public class KittyAI : MonoBehaviour
     Vector3 nextDestination;
     Animator anim;
     public GameObject player;
-    public float kittyWalkSpeed = 0.8f;
-
-    public float kittyRunSpeed = 1.5f;
-    float kittySpeed;
     int currentDestinationIndex = 0;
     public float talkDistance = 1;
     public float runDistance = 4;
@@ -96,24 +92,24 @@ public class KittyAI : MonoBehaviour
     {
         nextDestination = player.transform.position;
 
-        if (distanceToPlayer <= talkDistance)
+        if (agent.remainingDistance <= talkDistance)
         {
             currentState = FSMStates.Idle;
             PlayerAndRodController.isChatting = true;
         }
-        else if (distanceToPlayer > talkDistance && distanceToPlayer <= runDistance)
+        else if (agent.remainingDistance > talkDistance && agent.remainingDistance <= runDistance)
         {
             currentState = FSMStates.Run;
             PlayerAndRodController.isChatting = false;
         }
-        else if (distanceToPlayer > runDistance)
+        else if (agent.remainingDistance > runDistance)
         {
             currentState = FSMStates.Walk;
             PlayerAndRodController.isChatting = false;
         }
 
         FaceTarget(nextDestination);
-
+        agent.SetDestination(nextDestination);
         anim.SetInteger("animState", 0);
     }
 
@@ -123,7 +119,7 @@ public class KittyAI : MonoBehaviour
 
         agent.stoppingDistance = 0;
 
-        if (Vector3.Distance(transform.position, nextDestination) < .5)
+        if (agent.remainingDistance < 0.5)
         {
             FindNextPoint();
 
@@ -134,10 +130,8 @@ public class KittyAI : MonoBehaviour
         }
 
         canvas.gameObject.SetActive(false);
-        kittySpeed = kittyWalkSpeed;
         FaceTarget(nextDestination);
         agent.SetDestination(nextDestination);
-        //transform.position = Vector3.MoveTowards(transform.position, nextDestination, kittySpeed * Time.deltaTime);
     }
 
     void UpdateRunState()
@@ -147,20 +141,18 @@ public class KittyAI : MonoBehaviour
         nextDestination = player.transform.position;
 
         agent.stoppingDistance = talkDistance;
-
-        if (distanceToPlayer <= talkDistance)
+        
+        if (agent.remainingDistance <= talkDistance)
         {
             currentState = FSMStates.Idle;
         }
-        else if (distanceToPlayer > runDistance)
+        else if (agent.remainingDistance > runDistance)
         {
             currentState = FSMStates.Walk;
         }
 
         canvas.gameObject.SetActive(true);
-        kittySpeed = kittyRunSpeed;
         FaceTarget(nextDestination);
         agent.SetDestination(nextDestination);
-        //transform.position = Vector3.MoveTowards(transform.position, nextDestination, kittySpeed * Time.deltaTime);
     }
 }
