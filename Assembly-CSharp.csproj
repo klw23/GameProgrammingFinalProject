@@ -73,6 +73,7 @@
     <Compile Include="Assets/Scripts/GrayFishSpawner.cs" />
     <Compile Include="Assets/Scripts/DialogueTrigger.cs" />
     <Compile Include="Assets/Scripts/WaterFloat.cs" />
+    <Compile Include="Assets/Scripts/StartGameBehavior.cs" />
     <Compile Include="Assets/Scripts/LootBehavior.cs" />
     <Compile Include="Assets/WaterRelatedAssets/Water Float/Standard Assets/Environment/Water/Water/Scripts/Water.cs" />
     <Compile Include="Assets/WaterRelatedAssets/Water Float/Standard Assets/Environment/Water/Water/Scripts/WaterTile.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Assets/Scripts/LootSpawner.cs" />
     <Compile Include="Assets/Scripts/MouseLook.cs" />
     <Compile Include="Assets/Scripts/SwapPole.cs" />
+    <Compile Include="Assets/Scripts/MouseSensitivityController.cs" />
     <Compile Include="Assets/WaterRelatedAssets/Water Float/Standard Assets/Environment/Water/Water/Scripts/SpecularLighting.cs" />
     <Compile Include="Assets/Scripts/CanvasBehavior.cs" />
     <Compile Include="Assets/Scripts/LevelManagerBehavior.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="Assets/Scripts/KittyAI.cs" />
     <Compile Include="Assets/OldScripts/FishingPoleBehavior2.cs" />
     <Compile Include="Assets/Scripts/FollowPlayer.cs" />
+    <Compile Include="Assets/Scripts/PauseMenuBehavior.cs" />
     <Compile Include="Assets/Scripts/PoleBehavior.cs" />
     <Compile Include="Assets/Scripts/FloatingText.cs" />
     <Compile Include="Assets/WaterRelatedAssets/Water Float/Standard Assets/Environment/Water/Water/Scripts/Displace.cs" />
