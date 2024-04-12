@@ -11,6 +11,8 @@ public class CameraBehavior : MonoBehaviour
     bool zoomingOut = true;
     float zoomOutTimer = 0f;
 
+    public GameObject mainMenu;
+
     void Start()
     {
         mainCamera = Camera.main;
@@ -26,13 +28,15 @@ public class CameraBehavior : MonoBehaviour
             if (zoomOutTimer >= zoomOutDuration)
             {
                 zoomingOut = false;
-                Invoke("LoadNextLevel", 3);
+                Invoke("ShowButtons", 0);
             }
         }
     }
 
-    void LoadNextLevel()
+  void ShowButtons()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //loads the next scene according to build order
+        mainMenu.SetActive(true);
     }
+
+
 }

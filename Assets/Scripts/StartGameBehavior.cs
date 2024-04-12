@@ -23,7 +23,6 @@ public class StartGameBehavior : MonoBehaviour
     void ShowTextOne()
     {
         text1.gameObject.SetActive(true);
-        Invoke("ShowTextTwo", 7);
     }
 
     void ShowTextTwo()

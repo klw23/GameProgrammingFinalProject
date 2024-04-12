@@ -92,7 +92,7 @@ public class PlayerAndRodController : MonoBehaviour
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime); //allows us to move the character based on keyboard input
 
-        if (isChatting)
+        if (isChatting && cutSceneCharacter != null)
         {
             FaceTarget(cutSceneCharacter.position);
         }
