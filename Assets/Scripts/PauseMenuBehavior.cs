@@ -32,9 +32,12 @@ public class PauseMenuBehavior : MonoBehaviour
 
     public void ExitScreenButton()
     {
+        print("clicking exit screen");
         pauseMenu.SetActive(false);
         isGamePaused = false;
         Time.timeScale = 1f;
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void PauseGame()
@@ -42,6 +45,8 @@ public class PauseMenuBehavior : MonoBehaviour
         isGamePaused = true;
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void ResumeGame()
@@ -49,6 +54,7 @@ public class PauseMenuBehavior : MonoBehaviour
         isGamePaused = false;
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
+        //Cursor.visible = false;
     }
 
     public void LoadMainMenu()
