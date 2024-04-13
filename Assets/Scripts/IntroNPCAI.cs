@@ -25,13 +25,14 @@ public class IntroNPCAI : MonoBehaviour
     NavMeshAgent agent;
     public Transform enemyEyes;
     public float fieldOfView = 45f;
+    Vector3 playerCenter;
 
     void Start()
     {
         wanderPoints = GameObject.FindGameObjectsWithTag("WanderPoint");
         ShuffleWanderPoints();
 
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");        
 
         anim = GetComponent<Animator>();
 
@@ -42,7 +43,10 @@ public class IntroNPCAI : MonoBehaviour
 
     void Update()
     {
-        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        playerCenter = player.transform.position;
+        playerCenter.y = enemyEyes.transform.position.y;
+        distanceToPlayer = Vector3.Distance(playerCenter, agent.nextPosition);
+
         ShuffleWanderPoints();
         switch (currentState)
         {
@@ -79,6 +83,7 @@ public class IntroNPCAI : MonoBehaviour
     {
         nextDestination = wanderPoints[currentDestinationIndex].transform.position;
         currentDestinationIndex = (currentDestinationIndex + 1) % wanderPoints.Length;
+        print("FOUND NEXT " + nextDestination);
         agent.SetDestination(nextDestination);
     }
 
@@ -92,7 +97,9 @@ public class IntroNPCAI : MonoBehaviour
 
     void UpdateIdleState()
     {
-        nextDestination = player.transform.position;
+        //Talking
+        print("IDLE");
+        nextDestination = playerCenter;
 
         if (agent.remainingDistance <= talkDistance)
         {
@@ -117,17 +124,21 @@ public class IntroNPCAI : MonoBehaviour
 
     void UpdateWalkState()
     {
+        //Patrolling
+        print("WALK");
         anim.SetInteger("animState", 1);
 
         agent.stoppingDistance = 0;
+        print(distanceToPlayer + " DIST PLAY");
 
         if (agent.remainingDistance < 0.5)
         {
             FindNextPoint();
 
         }
-        else if (IsPlayerInClearFOV())
+        else if ((distanceToPlayer <= runDistance) && IsPlayerInClearFOV())
         {
+            //nextDestination = playerCenter;
             currentState = FSMStates.Run;
         }
 
@@ -138,11 +149,16 @@ public class IntroNPCAI : MonoBehaviour
 
     void UpdateRunState()
     {
+        //Chasing
+        print("RUN");
         anim.SetInteger("animState", 2);
 
-        nextDestination = player.transform.position;
+        nextDestination = playerCenter;
 
         agent.stoppingDistance = talkDistance;
+        // print(agent.transform.position + " agent's position");
+        // print(agent.destination + " agent destination");
+        // print(agent.remainingDistance + " remain dist");
         
         if (agent.remainingDistance <= talkDistance)
         {
@@ -150,7 +166,7 @@ public class IntroNPCAI : MonoBehaviour
         }
         else if (agent.remainingDistance > runDistance)
         {
-            FindNextPoint();
+            //FindNextPoint();
             currentState = FSMStates.Walk;
         }
 
@@ -171,20 +187,25 @@ public class IntroNPCAI : MonoBehaviour
         Vector3 rightRayPoint = Quaternion.Euler(0, -fieldOfView * 0.5f, 0) *frontRayPoint;
 
         Debug.DrawLine(enemyEyes.position, frontRayPoint, Color.cyan);
-        Debug.DrawLine(enemyEyes.position, leftRayPoint, Color.yellow);
-        Debug.DrawLine(enemyEyes.position, rightRayPoint, Color.yellow);
+        //Debug.DrawLine(enemyEyes.position, leftRayPoint, Color.yellow);
+        //Debug.DrawLine(enemyEyes.position, rightRayPoint, Color.yellow);
     }
 
     bool IsPlayerInClearFOV() {
         RaycastHit hit;
-        
-        Vector3 directionToPlayer = player.transform.position - enemyEyes.position;
 
-        print("angle " + Vector3.Angle(directionToPlayer, enemyEyes.forward));
+        Vector3 directionToPlayer = playerCenter - enemyEyes.position;
+        //print(directionToPlayer + " dir to player");
+        //print("angle " + Vector3.Angle(directionToPlayer, enemyEyes.forward));
+        print(Vector3.Angle(directionToPlayer, enemyEyes.forward) + " ANGLE");
+        print(fieldOfView + " FOV");
+        print(directionToPlayer + " DIR PLAYER FOV");
+        Debug.DrawRay(enemyEyes.position, directionToPlayer);
 
         if (Vector3.Angle(directionToPlayer, enemyEyes.forward) <= fieldOfView) {
             if (Physics.Raycast(enemyEyes.position, directionToPlayer, out hit, runDistance)) {
-                print(hit.collider.gameObject.name + "HIT COLLIDER");
+                print(hit.collider.gameObject.name + " HIT COLLIDER");
+                //Debug.DrawRay(enemyEyes.position, directionToPlayer); //raycast is not shooting?
                 if(hit.collider.CompareTag("Player")) {
                     return true;
                 }
