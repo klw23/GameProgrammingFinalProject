@@ -23,6 +23,8 @@ public class IntroNPCAI : MonoBehaviour
     float distanceToPlayer;
     public Canvas canvas;
     NavMeshAgent agent;
+    public Transform enemyEyes;
+    public float fieldOfView = 45f;
 
     void Start()
     {
@@ -124,7 +126,7 @@ public class IntroNPCAI : MonoBehaviour
             FindNextPoint();
 
         }
-        else if (distanceToPlayer <= runDistance)
+        else if (IsPlayerInClearFOV())
         {
             currentState = FSMStates.Run;
         }
@@ -148,11 +150,48 @@ public class IntroNPCAI : MonoBehaviour
         }
         else if (agent.remainingDistance > runDistance)
         {
+            FindNextPoint();
             currentState = FSMStates.Walk;
         }
 
         canvas.gameObject.SetActive(true);
         FaceTarget(nextDestination);
         agent.SetDestination(nextDestination);
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        //Gizmos.DrawWireSphere(transform.position, attackDistance);
+
+        Gizmos.color = Color.green;
+        //Gizmos.DrawWireSphere(transform.position, chaseDistance);
+
+        Vector3 frontRayPoint = enemyEyes.position + (enemyEyes.forward * runDistance);
+        Vector3 leftRayPoint = Quaternion.Euler(0, fieldOfView * 0.5f, 0) * frontRayPoint;
+        Vector3 rightRayPoint = Quaternion.Euler(0, -fieldOfView * 0.5f, 0) *frontRayPoint;
+
+        Debug.DrawLine(enemyEyes.position, frontRayPoint, Color.cyan);
+        Debug.DrawLine(enemyEyes.position, leftRayPoint, Color.yellow);
+        Debug.DrawLine(enemyEyes.position, rightRayPoint, Color.yellow);
+    }
+
+    bool IsPlayerInClearFOV() {
+        RaycastHit hit;
+        
+        Vector3 directionToPlayer = player.transform.position - enemyEyes.position;
+
+        print("angle " + Vector3.Angle(directionToPlayer, enemyEyes.forward));
+
+        if (Vector3.Angle(directionToPlayer, enemyEyes.forward) <= fieldOfView) {
+            if (Physics.Raycast(enemyEyes.position, directionToPlayer, out hit, runDistance)) {
+                print(hit.collider.gameObject.name + "HIT COLLIDER");
+                if(hit.collider.CompareTag("Player")) {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return false;
     }
 }
