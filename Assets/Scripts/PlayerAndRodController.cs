@@ -70,7 +70,7 @@ public class PlayerAndRodController : MonoBehaviour
             else
             {
                 // midair 
-                Debug.Log(controller.isGrounded + "hit midair");
+                //Debug.Log(controller.isGrounded + "hit midair");
                 input.y = moveDirection.y;
                 moveDirection = Vector3.Lerp(moveDirection, input, airControl * Time.deltaTime);
                

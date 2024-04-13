@@ -23,13 +23,16 @@ public class IntroNPCAI : MonoBehaviour
     float distanceToPlayer;
     public Canvas canvas;
     NavMeshAgent agent;
+    public Transform enemyEyes;
+    public float fieldOfView = 45f;
+    Vector3 playerCenter;
 
     void Start()
     {
         wanderPoints = GameObject.FindGameObjectsWithTag("WanderPoint");
         ShuffleWanderPoints();
 
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");        
 
         anim = GetComponent<Animator>();
 
@@ -40,7 +43,10 @@ public class IntroNPCAI : MonoBehaviour
 
     void Update()
     {
-        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        playerCenter = player.transform.position;
+        playerCenter.y = enemyEyes.transform.position.y;
+        distanceToPlayer = Vector3.Distance(playerCenter, agent.nextPosition);
+
         ShuffleWanderPoints();
         switch (currentState)
         {
@@ -90,7 +96,8 @@ public class IntroNPCAI : MonoBehaviour
 
     void UpdateIdleState()
     {
-        nextDestination = player.transform.position;
+        //Talking
+        nextDestination = playerCenter;
 
         if (agent.remainingDistance <= talkDistance)
         {
@@ -115,6 +122,7 @@ public class IntroNPCAI : MonoBehaviour
 
     void UpdateWalkState()
     {
+        //Patrolling
         anim.SetInteger("animState", 1);
 
         agent.stoppingDistance = 0;
@@ -124,7 +132,7 @@ public class IntroNPCAI : MonoBehaviour
             FindNextPoint();
 
         }
-        else if (distanceToPlayer <= runDistance)
+        else if ((distanceToPlayer <= runDistance) && IsPlayerInClearFOV())
         {
             currentState = FSMStates.Run;
         }
@@ -136,9 +144,10 @@ public class IntroNPCAI : MonoBehaviour
 
     void UpdateRunState()
     {
+        //Chasing
         anim.SetInteger("animState", 2);
 
-        nextDestination = player.transform.position;
+        nextDestination = playerCenter;
 
         agent.stoppingDistance = talkDistance;
         
@@ -154,5 +163,28 @@ public class IntroNPCAI : MonoBehaviour
         canvas.gameObject.SetActive(true);
         FaceTarget(nextDestination);
         agent.SetDestination(nextDestination);
+    }
+
+    private void OnDrawGizmos() {
+        Vector3 frontRayPoint = enemyEyes.position + (enemyEyes.forward * runDistance);
+
+        Debug.DrawLine(enemyEyes.position, frontRayPoint, Color.cyan);
+    }
+
+    bool IsPlayerInClearFOV() {
+        RaycastHit hit;
+
+        Vector3 directionToPlayer = playerCenter - enemyEyes.position;
+
+        if (Vector3.Angle(directionToPlayer, enemyEyes.forward) <= fieldOfView) {
+            if (Physics.Raycast(enemyEyes.position, directionToPlayer, out hit, runDistance)) {
+                if(hit.collider.CompareTag("Player")) {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return false;
     }
 }
