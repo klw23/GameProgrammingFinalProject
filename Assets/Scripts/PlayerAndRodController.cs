@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerAndRodController : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class PlayerAndRodController : MonoBehaviour
     public Animator anim;
     public Transform cutSceneCharacter;
 
-    public bool isCutScene=false;
+    public bool isCutScene = false;
     public bool invertControls = false;
 
     // private variables
@@ -34,11 +35,11 @@ public class PlayerAndRodController : MonoBehaviour
         moveHorizontal = Input.GetAxis("Horizontal");
         moveVertical = Input.GetAxis("Vertical");
 
-        input = (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
+        input = (Vector3.right * moveHorizontal + Vector3.forward * moveVertical).normalized;
 
         input *= moveSpeed;
 
-        if (PoleBehavior.isReeledIn)
+        if (PoleBehavior.isReeledIn && !isChatting)
         {
             if (controller.isGrounded)
             {
@@ -47,7 +48,7 @@ public class PlayerAndRodController : MonoBehaviour
                     onGroundAnimate();
                     onMove();
                     isWalking = true;
-                } 
+                }
                 else if (Input.GetButton("Jump"))
                 {
                     anim.SetInteger("MichelleMovement", 5);
@@ -56,37 +57,32 @@ public class PlayerAndRodController : MonoBehaviour
                 }
                 else
                 {
-                    if(isCutScene)
+                    if (isCutScene)
                     {
                         anim.SetInteger("MichelleMovement", 6);
-                    } else
+                    }
+                    else
                     {
                         anim.SetInteger("MichelleMovement", 0);
                     }
                     moveDirection = Vector3.zero;
                     isWalking = false;
                 }
-            } 
+            }
             else
             {
                 // midair 
-                //Debug.Log(controller.isGrounded + "hit midair");
+                if (invertControls)
+                {
+                    input.x = -input.x;
+                    input.z = -input.z;
+                }
+
                 input.y = moveDirection.y;
                 moveDirection = Vector3.Lerp(moveDirection, input, airControl * Time.deltaTime);
-               
+
             }
-        } 
-        else
-        {
-            if (isCutScene)
-            {
-                anim.SetInteger("MichelleMovement", 6);
-            }
-            else
-            {
-                anim.SetInteger("MichelleMovement", 0);
-            }
-            moveDirection = Vector3.zero;
+
         }
 
         moveDirection.y -= gravity * Time.deltaTime;
@@ -95,13 +91,13 @@ public class PlayerAndRodController : MonoBehaviour
         if (isChatting && cutSceneCharacter != null)
         {
             FaceTarget(cutSceneCharacter.position);
+            print("FACING");
         }
     }
 
     void onMove()
     {
-
-        if(invertControls)
+        if (invertControls)
         {
             moveDirection = -input;
         }
@@ -109,7 +105,7 @@ public class PlayerAndRodController : MonoBehaviour
         {
             moveDirection = input;
         }
-      
+
         moveDirection.Normalize();
 
         moveDirection = moveDirection * moveSpeed;
