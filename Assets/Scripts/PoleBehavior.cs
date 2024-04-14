@@ -11,6 +11,7 @@ public class PoleBehavior : MonoBehaviour
     public GameObject fishingbob;
     public GameObject player;
     public float timerBetweenFires = 2f;
+    public GameObject tipOfPole;
 
     LineRenderer lr;
     Rigidbody bobRB;
@@ -19,11 +20,13 @@ public class PoleBehavior : MonoBehaviour
 
     void Start()
     {
-        isReeledIn = true;
         fishingbob = GameObject.FindGameObjectWithTag("Bob");
+        tipOfPole = transform.GetChild(0).gameObject;
         lr = transform.GetComponent<LineRenderer>();
         bobRB = fishingbob.GetComponent<Rigidbody>();
+
         UpdateBobStartingPos();
+        isReeledIn = true;
         canFire = true;
         timer = timerBetweenFires;
     }
@@ -69,7 +72,7 @@ public class PoleBehavior : MonoBehaviour
         bobStartingPos = fishingbob.transform.position;
         bobRB.isKinematic = false;
         bobRB.useGravity = true;
-        bobRB.AddForce(transform.forward * projectileSpeed, ForceMode.VelocityChange);
+        bobRB.AddForce(tipOfPole.transform.forward * projectileSpeed, ForceMode.VelocityChange);
         isReeledIn = false;
     }
 

@@ -21,7 +21,7 @@ public class FishingBobBehavior : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Water")
+        if (collision.gameObject.tag == "Water" || collision.gameObject.tag == "Fish")
         {
             bobRB.isKinematic = true;
         }
