@@ -34,7 +34,7 @@ public class PlayerAndRodController : MonoBehaviour
         moveHorizontal = Input.GetAxis("Horizontal");
         moveVertical = Input.GetAxis("Vertical");
 
-        input = (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
+        input = (Vector3.right * moveHorizontal + Vector3.forward * moveVertical).normalized;
 
         input *= moveSpeed;
 
