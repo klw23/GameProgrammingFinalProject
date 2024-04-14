@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerAndRodController : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class PlayerAndRodController : MonoBehaviour
 
         input *= moveSpeed;
 
-        if (PoleBehavior.isReeledIn)
+        if (PoleBehavior.isReeledIn && !isChatting)
         {
             if (controller.isGrounded)
             {
@@ -81,10 +82,17 @@ public class PlayerAndRodController : MonoBehaviour
                 moveDirection = Vector3.Lerp(moveDirection, input, airControl * Time.deltaTime);
 
             }
+
         }
 
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime); //allows us to move the character based on keyboard input
+
+        if (isChatting && cutSceneCharacter != null)
+        {
+            FaceTarget(cutSceneCharacter.position);
+            print("FACING");
+        }
     }
 
     void onMove()
@@ -122,5 +130,13 @@ public class PlayerAndRodController : MonoBehaviour
         {
             anim.SetInteger("MichelleMovement", 2);
         }
+    }
+
+    void FaceTarget(Vector3 target)
+    {
+        Vector3 directionToTarget = (target - transform.position).normalized;
+        directionToTarget.y = 0;
+        Quaternion lookRotation = Quaternion.LookRotation(directionToTarget);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 10 * Time.deltaTime);
     }
 }

@@ -102,17 +102,14 @@ public class IntroNPCAI : MonoBehaviour
         if (agent.remainingDistance <= talkDistance)
         {
             currentState = FSMStates.Idle;
-            PlayerAndRodController.isChatting = true;
         }
         else if (agent.remainingDistance > talkDistance && agent.remainingDistance <= runDistance)
         {
             currentState = FSMStates.Run;
-            PlayerAndRodController.isChatting = false;
         }
         else if (agent.remainingDistance > runDistance)
         {
             currentState = FSMStates.Walk;
-            PlayerAndRodController.isChatting = false;
         }
 
         FaceTarget(nextDestination);

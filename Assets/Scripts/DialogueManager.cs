@@ -22,6 +22,8 @@ public class DialogueManager : MonoBehaviour
         nameText.text = dialogue.name;
         sentences.Clear();
 
+        PlayerAndRodController.isChatting = true;
+
         foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
