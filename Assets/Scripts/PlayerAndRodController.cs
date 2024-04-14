@@ -47,12 +47,12 @@ public class PlayerAndRodController : MonoBehaviour
                     onGroundAnimate();
                     onMove();
                     isWalking = true;
-                    if (Input.GetButton("Jump"))
-                    {
-                        anim.SetInteger("MichelleMovement", 5);
-                        moveDirection.y = Mathf.Sqrt(2 * jumpHeight * gravity);
-                        isWalking = false;
-                    }
+                }
+                else if (Input.GetButton("Jump"))
+                {
+                    anim.SetInteger("MichelleMovement", 5);
+                    moveDirection.y = Mathf.Sqrt(2 * jumpHeight * gravity);
+                    isWalking = false;
                 }
                 else
                 {
