@@ -24533,6 +24533,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2511621427813757910, guid: f5dfa12e24ff1c6418ffa79098bd39c0, type: 3}
+      propertyPath: m_UseWorldSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5028648432443406057, guid: f5dfa12e24ff1c6418ffa79098bd39c0, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
