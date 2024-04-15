@@ -30,10 +30,4 @@ public class FishingBobBehavior : MonoBehaviour
             PoleBehavior.isReeledIn = true;
         }
     }
-
-    //void reelBob()
-    //{
-    //    PoleBehavior.isReeledIn = true;
-    //    transform.position = PoleBehavior.bobStartingPos;
-    //}
 }

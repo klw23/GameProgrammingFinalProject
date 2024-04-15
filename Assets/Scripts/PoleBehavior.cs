@@ -69,7 +69,6 @@ public class PoleBehavior : MonoBehaviour
 
     void castBob()
     {
-        bobStartingPos = fishingbob.transform.position;
         bobRB.isKinematic = false;
         bobRB.useGravity = true;
         bobRB.AddForce(tipOfPole.transform.forward * projectileSpeed, ForceMode.VelocityChange);
@@ -79,5 +78,6 @@ public class PoleBehavior : MonoBehaviour
     void reelBob()
     {
         isReeledIn = true;
+        bobRB.isKinematic = true;
     }
 }
