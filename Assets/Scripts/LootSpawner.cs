@@ -25,6 +25,7 @@ public class LootSpawner : MonoBehaviour
     {
         if (currentLootCount < maxLoot && islandPrefab != null)
         {
+            print("here");
             Collider islandCollider = islandPrefab.GetComponent<Collider>();
             if (islandCollider != null)
             {
