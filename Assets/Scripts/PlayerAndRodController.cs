@@ -29,6 +29,7 @@ public class PlayerAndRodController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         isChatting = false;
+        PoleBehavior.isReeledIn = true;
     }
 
     void Update()
