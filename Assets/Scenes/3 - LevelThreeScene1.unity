@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.697523, g: 0.6783591, b: 0.7095029, a: 1}
+  m_IndirectSpecularColor: {r: 0.6984482, g: 0.6783524, b: 0.7101499, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8863,7 +8863,7 @@ MonoBehaviour:
   addedTimeText: {fileID: 233164781}
   boostedModeText: {fileID: 1559075276}
   moneySlider: {fileID: 1034460077}
-  winScore: 400
+  winScore: 550
   boostedCoinText: {fileID: 1702108649}
   gameOverSFX: {fileID: 8300000, guid: 2f85f0d7e70db404d8d79c3f1da98cc1, type: 3}
   gameWonSFX: {fileID: 8300000, guid: 8e9c026771aa0462cb806474fce90fb9, type: 3}
