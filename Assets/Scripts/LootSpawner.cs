@@ -24,7 +24,10 @@ public class LootSpawner : MonoBehaviour
     void Start()
     {
         // call function
-        InvokeRepeating("SpawnHourglass", hourglassSpawnTime, hourglassSpawnTime);
+        if (SceneManager.GetActiveScene().name == "LevelThreeScene1")
+        {
+            InvokeRepeating("SpawnHourglass", hourglassSpawnTime, hourglassSpawnTime);
+        }
         InvokeRepeating("SpawnStar", starSpawnTime, starSpawnTime);
     }
 
@@ -35,6 +38,7 @@ public class LootSpawner : MonoBehaviour
         {
             print("here");
             Collider islandCollider = islandPrefab.GetComponent<Collider>();
+
             if (islandCollider != null)
             {
                 // Use the island's collider bounds
