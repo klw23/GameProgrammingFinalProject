@@ -10,7 +10,7 @@ public class MouseSensitivityController : MonoBehaviour
 
     public Slider mouseSensitivitySlider;
     public TextMeshProUGUI mouseSensitivityValue;
-    float sliderValue;
+    float sliderValue = 50.0f;
 
     void Start()
     {

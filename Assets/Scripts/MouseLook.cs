@@ -6,7 +6,7 @@ public class MouseLook : MonoBehaviour
 {
     //public float mouseSensitivity = 100f; 
     public Transform playerTransform;
-    float mouseSensitivity;
+    float mouseSensitivity = 50f;
 
     void Start()
     {
@@ -16,8 +16,7 @@ public class MouseLook : MonoBehaviour
     private void Update()
     {
 
-        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
-        print("mouse " + mouseSensitivity);
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 50.0f);
         if (!PoleBehavior.isReeledIn)
         {
             // do not let player move
