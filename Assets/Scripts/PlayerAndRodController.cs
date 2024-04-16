@@ -28,6 +28,7 @@ public class PlayerAndRodController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        isChatting = false;
     }
 
     void Update()
