@@ -149,15 +149,6 @@ public class FishAI : MonoBehaviour
             if (PoleBehavior.isReeledIn)
             {
                 AudioSource.PlayClipAtPoint(yaySFX, transform.position);
-                
-                if (gameObject.CompareTag("Shark"))
-                {
-                    fishValue = 50;
-                }
-                else 
-                {
-                    fishValue = 20;
-                }
 
                 LevelManagerBehavior.currentScore += fishValue;
                 countDown = 0;
