@@ -91,7 +91,6 @@ public class PlayerAndRodController : MonoBehaviour
         if (isChatting && cutSceneCharacter != null)
         {
             FaceTarget(cutSceneCharacter.position);
-            print("FACING");
         }
     }
 
