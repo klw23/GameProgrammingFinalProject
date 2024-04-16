@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.7000359, g: 0.6798595, b: 0.7119645, a: 1}
+  m_IndirectSpecularColor: {r: 0.6975168, g: 0.67835325, b: 0.7094997, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -26237,7 +26237,8 @@ MonoBehaviour:
     - 'Good meowning, Kaia! '
     - Today you'll need to catch $100 worth of fish on the tropical island of Bermuda!
     - 'The Purple Royale are worth $20 each. (yum.. my favorite) '
-    - Use WASD to move and left click to cast your line and reel your fish in.
+    - 'Use WASD to move and left click to cast your line and reel your fish in. Click
+      Tab in order to pause the game. '
     - Keep an eye out for some special loot (it'll give you more time!)
     - "Good luck on your adventure! meow \r\n"
 --- !u!114 &8280723197641167265
