@@ -91,7 +91,6 @@ public class PlayerAndRodController : MonoBehaviour
         if (isChatting && cutSceneCharacter != null)
         {
             FaceTarget(cutSceneCharacter.position);
-            print("FACING");
         }
     }
 
@@ -114,21 +113,27 @@ public class PlayerAndRodController : MonoBehaviour
 
     void onGroundAnimate()
     {
-        if (moveHorizontal > 0)
+        // Determines what is the relationship the moveDirection is to the players current forward direction (mouseLook)
+        float  facingMovementDirection = Vector3.Dot(transform.forward.normalized, moveDirection.normalized);
+
+        if (Mathf.Round(facingMovementDirection) == 1)
         {
-            anim.SetInteger("MichelleMovement", 3);
+            anim.SetInteger("MichelleMovement", 1); // forward
+        } 
+        else if (Mathf.Round(facingMovementDirection) == -1)
+        {
+            anim.SetInteger("MichelleMovement", 2); // backwards
         }
-        else if (moveHorizontal < 0)
+        else if (Mathf.Round(facingMovementDirection) == 0)
         {
-            anim.SetInteger("MichelleMovement", 4);
-        }
-        else if (moveVertical > 0)
-        {
-            anim.SetInteger("MichelleMovement", 1);
-        }
-        else if (moveVertical < 0)
-        {
-            anim.SetInteger("MichelleMovement", 2);
+            if ( moveHorizontal > 0 || moveVertical > 0)
+            {
+                anim.SetInteger("MichelleMovement", 3);
+            } 
+            else if (moveHorizontal < 0 || moveVertical < 0)
+            {
+                anim.SetInteger("MichelleMovement", 4);
+            }
         }
     }
 
