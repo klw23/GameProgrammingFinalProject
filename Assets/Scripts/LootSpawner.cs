@@ -24,11 +24,11 @@ public class LootSpawner : MonoBehaviour
     void Start()
     {
         // call function
-        if (SceneManager.GetActiveScene().name == "LevelThreeScene1")
+        if (SceneManager.GetActiveScene().name == "3 - LevelThreeScene1")
         {
             InvokeRepeating("SpawnStar", starSpawnTime, starSpawnTime);
         }
-        
+
         InvokeRepeating("SpawnHourglass", hourglassSpawnTime, hourglassSpawnTime);
     }
 
@@ -37,12 +37,11 @@ public class LootSpawner : MonoBehaviour
     {
         if (currentCount < maxCount && islandPrefab != null)
         {
-            print("here");
             Collider islandCollider = islandPrefab.GetComponent<Collider>();
 
             if (islandCollider != null)
             {
-                // Use the island's collider bounds
+                // Use the island
                 float spawnX = Random.Range(islandCollider.bounds.min.x + 8f, islandCollider.bounds.max.x - 8f);
                 float spawnZ = Random.Range(islandCollider.bounds.min.z + 8f, islandCollider.bounds.max.z - 8f);
 
@@ -52,16 +51,16 @@ public class LootSpawner : MonoBehaviour
 
                 Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
 
-                // Instantiate the loot prefab at the calculated position
+                // Instantiate loot
                 GameObject spawnedLoot = Instantiate(prefab, spawnPosition, Quaternion.identity);
                 spawnedLoot.transform.SetParent(transform);
 
-                currentCount++; // Increment the loot count
+                currentCount++; 
 
                 // Play the loot spawn sound effect
                 AudioSource.PlayClipAtPoint(lootSFX, spawnPosition);
 
-                Debug.Log($"Loot spawned at: {spawnPosition}");
+                Debug.Log($"{lootTag} spawned at: {spawnPosition}");
 
             }
         }
