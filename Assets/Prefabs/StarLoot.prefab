@@ -123,5 +123,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeAmount: 0
   collectLootSFX: {fileID: 8300000, guid: 8e1dedd615e524c50aa38ccafc8074b4, type: 3}
-  lootSpawner: {fileID: 0}
+  lootSpawner: {fileID: 3767109849033143150, guid: 491da8a7ca2534deba6aba3cdc384339, type: 3}
   sharkPrefab: {fileID: 5801450953932616287, guid: c1f3e547ed57047a886b3fab043f9633, type: 3}

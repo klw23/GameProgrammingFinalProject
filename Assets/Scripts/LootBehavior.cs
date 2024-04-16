@@ -18,7 +18,7 @@ public class LootBehavior : MonoBehaviour
     GameObject[] spawnPoints;
     void Start()
     {
-        
+        spawnPoints = GameObject.FindGameObjectsWithTag("FishSpawnPoint");
     }
 
     // Update is called once per frame
@@ -65,6 +65,7 @@ public class LootBehavior : MonoBehaviour
 
                 // Instantiate fish and set its parent
                 GameObject newShark = Instantiate(sharkPrefab, spawnPosition, Quaternion.identity);
+                Debug.Log("Shark Spawned! at" + spawnPosition);
                 if (sharkParent != null)
                 {
                     newShark.transform.SetParent(sharkParent.transform);

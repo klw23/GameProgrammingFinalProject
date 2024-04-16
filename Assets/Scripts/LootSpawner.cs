@@ -26,9 +26,10 @@ public class LootSpawner : MonoBehaviour
         // call function
         if (SceneManager.GetActiveScene().name == "LevelThreeScene1")
         {
-            InvokeRepeating("SpawnHourglass", hourglassSpawnTime, hourglassSpawnTime);
+            InvokeRepeating("SpawnStar", starSpawnTime, starSpawnTime);
         }
-        InvokeRepeating("SpawnStar", starSpawnTime, starSpawnTime);
+        
+        InvokeRepeating("SpawnHourglass", hourglassSpawnTime, hourglassSpawnTime);
     }
 
     
