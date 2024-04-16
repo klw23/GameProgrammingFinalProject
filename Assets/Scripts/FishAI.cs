@@ -149,6 +149,7 @@ public class FishAI : MonoBehaviour
             if (PoleBehavior.isReeledIn)
             {
                 AudioSource.PlayClipAtPoint(yaySFX, transform.position);
+
                 LevelManagerBehavior.currentScore += fishValue;
                 countDown = 0;
                 poleOccupied = false;

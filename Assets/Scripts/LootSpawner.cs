@@ -5,27 +5,40 @@ using UnityEngine.SceneManagement;
 
 public class LootSpawner : MonoBehaviour
 {
-    public GameObject lootPrefab; 
+    public GameObject hourglassPrefab; 
+    public GameObject starPrefab; 
 
     public GameObject islandPrefab;
 
-    public float spawnTime = 7f; // time between spawns
-    private int maxLoot = 10; // max number of loot
-    private int currentLootCount = 0; // current number of loot items
+    public float hourglassSpawnTime = 7f; 
+    public float starSpawnTime = 30f; 
+
+    private int maxHourglass = 10; 
+    private int maxStar = 2; 
+
+    private int currentHourglassCount = 0; 
+    private int currentStarCount = 0; 
 
     public AudioClip lootSFX;
 
     void Start()
     {
         // call function
-        InvokeRepeating("SpawnLoot", spawnTime, spawnTime);
+        if (SceneManager.GetActiveScene().name == "LevelThreeScene1")
+        {
+            InvokeRepeating("SpawnHourglass", hourglassSpawnTime, hourglassSpawnTime);
+        }
+        InvokeRepeating("SpawnStar", starSpawnTime, starSpawnTime);
     }
 
-    void SpawnLoot()
+    
+    void SpawnLoot(GameObject prefab, ref int currentCount, int maxCount, string lootTag)
     {
-        if (currentLootCount < maxLoot && islandPrefab != null)
+        if (currentCount < maxCount && islandPrefab != null)
         {
+            print("here");
             Collider islandCollider = islandPrefab.GetComponent<Collider>();
+
             if (islandCollider != null)
             {
                 // Use the island's collider bounds
@@ -39,10 +52,10 @@ public class LootSpawner : MonoBehaviour
                 Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
 
                 // Instantiate the loot prefab at the calculated position
-                GameObject spawnedLoot = Instantiate(lootPrefab, spawnPosition, Quaternion.identity);
+                GameObject spawnedLoot = Instantiate(prefab, spawnPosition, Quaternion.identity);
                 spawnedLoot.transform.SetParent(transform);
 
-                currentLootCount++; // Increment the loot count
+                currentCount++; // Increment the loot count
 
                 // Play the loot spawn sound effect
                 AudioSource.PlayClipAtPoint(lootSFX, spawnPosition);
@@ -54,13 +67,27 @@ public class LootSpawner : MonoBehaviour
 
     }
 
-
-
-    public void LootCollected()
+    void SpawnHourglass()
     {
-        if (currentLootCount > 0)
+        SpawnLoot(hourglassPrefab, ref currentHourglassCount, maxHourglass, "Hourglass");
+    }
+
+    void SpawnStar()
+    {
+        SpawnLoot(starPrefab, ref currentStarCount, maxStar, "Star");
+    }
+
+
+
+    public void LootCollected(string tag)
+    {
+        if (tag == "hourglass" && currentHourglassCount > 0)
         {
-            currentLootCount--;
+            currentHourglassCount--;
+        }
+        else if (tag == "star" && currentStarCount > 0)
+        {
+            currentStarCount--;
         }
     }
    

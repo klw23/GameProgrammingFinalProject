@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -4088635414470263858}
   m_Layer: 0
   m_Name: Loot(hourglass)
-  m_TagString: Loot
+  m_TagString: Hourglass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -32.78, y: 3.32, z: 95}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 13, y: 13, z: 13}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3733943463544180303}
@@ -125,7 +125,7 @@ MonoBehaviour:
   timeAmount: 5
   collectLootSFX: {fileID: 8300000, guid: 7a02d177e71734372bb8c6a42a7e7fe7, type: 3}
   lootSpawner: {fileID: 3767109849033143150, guid: 491da8a7ca2534deba6aba3cdc384339, type: 3}
-  player: {fileID: 5116406245236151343, guid: bcc7dca78fc1d6d43a02077d105a7bc4, type: 3}
+  sharkPrefab: {fileID: 5801450953932616287, guid: c1f3e547ed57047a886b3fab043f9633, type: 3}
 --- !u!95 &1148377883267213937
 Animator:
   serializedVersion: 5

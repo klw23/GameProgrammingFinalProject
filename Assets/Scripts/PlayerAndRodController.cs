@@ -28,6 +28,8 @@ public class PlayerAndRodController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        isChatting = false;
+        PoleBehavior.isReeledIn = true;
     }
 
     void Update()
@@ -91,7 +93,6 @@ public class PlayerAndRodController : MonoBehaviour
         if (isChatting && cutSceneCharacter != null)
         {
             FaceTarget(cutSceneCharacter.position);
-            print("FACING");
         }
     }
 
