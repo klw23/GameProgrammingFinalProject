@@ -25270,9 +25270,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2978f06b8d14ca3be0e431f78e4204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootPrefab: {fileID: 4363084001651438831, guid: 101530ef567594a6a92d8461e091850e, type: 3}
+  hourglassPrefab: {fileID: 4363084001651438831, guid: 101530ef567594a6a92d8461e091850e, type: 3}
+  starPrefab: {fileID: 7847191530984618668, guid: edd9ebe4d2bb44af7b35a482d73cdccd, type: 3}
   islandPrefab: {fileID: 923065821}
-  spawnTime: 20
+  hourglassSpawnTime: 7
+  starSpawnTime: 30
   lootSFX: {fileID: 8300000, guid: 7a02d177e71734372bb8c6a42a7e7fe7, type: 3}
 --- !u!4 &1830600519
 Transform:
