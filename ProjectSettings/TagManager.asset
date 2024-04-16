@@ -20,6 +20,7 @@ TagManager:
   - NPCTextStartCanvas
   - Obstacle
   - Coin
+  - Star
   layers:
   - Default
   - TransparentFX
