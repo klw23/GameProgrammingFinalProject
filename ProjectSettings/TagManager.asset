@@ -21,6 +21,8 @@ TagManager:
   - Obstacle
   - Coin
   - Star
+  - Shark
+  - Hourglass
   layers:
   - Default
   - TransparentFX
