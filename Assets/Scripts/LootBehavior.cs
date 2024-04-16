@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LootBehavior : MonoBehaviour
 {
-    public int timeAmount;
+    public int timeAmount = 5;
     public AudioClip collectLootSFX;
 
     public LootSpawner lootSpawner;

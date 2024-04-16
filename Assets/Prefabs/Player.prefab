@@ -164,6 +164,7 @@ MonoBehaviour:
   fishingbob: {fileID: 0}
   player: {fileID: 1651233744503252027}
   timerBetweenFires: 0.5
+  tipOfPole: {fileID: 0}
 --- !u!120 &2511621427813757910
 LineRenderer:
   serializedVersion: 2
@@ -621,7 +622,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd66f7981d67964097fa54c03a99a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
   playerTransform: {fileID: 2135142708366376577}
 --- !u!114 &6858342888837349099
 MonoBehaviour:
@@ -641,6 +641,8 @@ MonoBehaviour:
   gravity: 9.81
   airControl: 5
   anim: {fileID: 3136445704873808534}
+  cutSceneCharacter: {fileID: 0}
+  isCutScene: 0
   invertControls: 0
 --- !u!1 &1744045334496369452
 GameObject:
@@ -2644,7 +2646,7 @@ GameObject:
   - component: {fileID: 7468484405357985845}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

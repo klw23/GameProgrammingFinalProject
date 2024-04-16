@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6830874435404102324}
   - component: {fileID: 8554448488544672646}
   - component: {fileID: 1028541742710332773}
+  - component: {fileID: 2593788516921239799}
   m_Layer: 0
   m_Name: StarLoot
   m_TagString: Star
@@ -108,3 +109,19 @@ MonoBehaviour:
   endScale: {x: 1.5, y: 1.5, z: 1.5}
   scaleSpeed: 1
   scaleRate: 0.5
+--- !u!114 &2593788516921239799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7847191530984618668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041b803b5041d4d7c98f6bedabda5664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeAmount: 0
+  collectLootSFX: {fileID: 8300000, guid: 8e1dedd615e524c50aa38ccafc8074b4, type: 3}
+  lootSpawner: {fileID: 0}
+  sharkPrefab: {fileID: 5801450953932616287, guid: c1f3e547ed57047a886b3fab043f9633, type: 3}
