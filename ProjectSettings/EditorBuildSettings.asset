@@ -5,28 +5,28 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/0-OpeningScene.unity
     guid: 16ee7d0e9d2d34bbb9fc123df051067e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/0.5-IntroduceStoryLine.unity
     guid: 60ccf050aca5a434dbbb29a2a6bd5689
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/0.5 - IntroductionKitty.unity
     guid: e9256d054cce58d499d2534226153ab1
   - enabled: 1
     path: Assets/Scenes/1 - LevelOneScene2.unity
     guid: 175d4930b53f74e798a10804931867d3
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/1.5 - IntroductionPenguin.unity
     guid: 8948c0f438d79194cb4bc31ffe98d418
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/2 - LevelTwoScene1.unity
     guid: 28111ae80c60e49fb8fa77c09d482723
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/2.5 - IntroductionDeer.unity
     guid: b6d0a8c88c7289e48a3d85d46125c3a9
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/3 - LevelThreeScene1.unity
     guid: ce54b1bde35f04cdaa32f09ebf19722f
   m_configObjects: {}
