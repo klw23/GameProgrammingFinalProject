@@ -593,8 +593,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishPrefab: {fileID: 218190604417864007, guid: 9e74831abbf55cc4abd7a89bba839c21, type: 3}
-  maxFishInGame: 4
-  maxTotalFish: 10
+  maxFishInGame: 8
+  maxTotalFish: 20
 --- !u!4 &23073672
 Transform:
   m_ObjectHideFlags: 0
@@ -9663,9 +9663,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 400
+  m_MaxValue: 550
   m_WholeNumbers: 1
-  m_Value: 300
+  m_Value: 546
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
