@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8554448488544672646}
   - component: {fileID: 1028541742710332773}
   - component: {fileID: 2593788516921239799}
+  - component: {fileID: 7645693789232138250}
   m_Layer: 0
   m_Name: StarLoot
   m_TagString: Star
@@ -124,4 +125,26 @@ MonoBehaviour:
   timeAmount: 0
   collectLootSFX: {fileID: 8300000, guid: 8e1dedd615e524c50aa38ccafc8074b4, type: 3}
   lootSpawner: {fileID: 3767109849033143150, guid: 491da8a7ca2534deba6aba3cdc384339, type: 3}
-  sharkPrefab: {fileID: 5801450953932616287, guid: c1f3e547ed57047a886b3fab043f9633, type: 3}
+  sharkPrefab: {fileID: 7216313106907714277, guid: 663ce69eb78dd79459e27456d3361951, type: 3}
+--- !u!64 &7645693789232138250
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7847191530984618668}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: bc0cdff0b0fdafc46bbdbda4b3717d71, type: 3}
