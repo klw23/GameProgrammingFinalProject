@@ -9,7 +9,7 @@ public class GrayFishSpawner : MonoBehaviour
     private bool isBoostedModeOn = false;
 
     public GameObject fishPrefab;
-    private int maxGrayFishSpawned = 3;
+    private int maxGrayFishSpawned = 6;
     private GameObject fishParent;
 
     private int grayFishSpawned = 1;
