@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 37506224228832226}
   - component: {fileID: 6586147418297695063}
+  - component: {fileID: 5502013813872117893}
+  - component: {fileID: 1891715637059964854}
   m_Layer: 0
   m_Name: Shark 1
   m_TagString: Untagged
@@ -26,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 7216313106907714277}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.2651825, y: -7.51931, z: 34.013092}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.20000002, y: 0.2, z: 0.20000002}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1890507258230258695}
@@ -47,14 +49,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   fishSpeed: 2
-  chaseDistance: 3
-  fishingBob: {fileID: 1947182306289507041, guid: 83394bb92bdb2d74b84a8f8cd46b6a9c, type: 3}
+  chaseDistance: 5
+  fishingBob: {fileID: 0}
   fishValue: 20
   yaySFX: {fileID: 8300000, guid: a850fbfb89ad54ed3842d137c6322dec, type: 3}
   timeToCatch: 1
   splashEffectPrefab: {fileID: 4891976383728537193, guid: ff1b41ede4e1f4a6fb6f17c6a985c0cb, type: 3}
   fishEyes: {fileID: 8169241670205801755}
   fieldOfView: 100
+--- !u!54 &5502013813872117893
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216313106907714277}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!136 &1891715637059964854
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216313106907714277}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3
+  m_Height: 15
+  m_Direction: 2
+  m_Center: {x: -8, y: 8, z: 36}
 --- !u!1001 &7017913310967490069
 PrefabInstance:
   m_ObjectHideFlags: 0
