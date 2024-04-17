@@ -40213,7 +40213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2845307580326725489, guid: 3e775be43d24a4223aac8b72b6a7c7d7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7304226914324894175, guid: 3e775be43d24a4223aac8b72b6a7c7d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40274,7 +40274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 218190604417864007, guid: 9e74831abbf55cc4abd7a89bba839c21, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 378899414605834103, guid: 9e74831abbf55cc4abd7a89bba839c21, type: 3}
       propertyPath: fishingBob
