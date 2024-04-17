@@ -98,6 +98,7 @@ public class FishAI : MonoBehaviour
 
     void UpdateSwimState()
     {
+        print("swimming");
         if (Vector3.Distance(transform.position, nextDestination) < .5)
         {
             FindNextPoint();
@@ -114,6 +115,7 @@ public class FishAI : MonoBehaviour
 
     void UpdateChaseState()
     {
+        print("chasing");
         if (distanceToFishingBob <= chaseDistance)
         {
             FaceTarget(fishingBob.transform.position);

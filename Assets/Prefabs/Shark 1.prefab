@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 6586147418297695063}
   - component: {fileID: 5502013813872117893}
   - component: {fileID: 1891715637059964854}
+  - component: {fileID: -4120713008374731541}
+  - component: {fileID: 2469017369000805380}
+  - component: {fileID: 2015032391076965605}
   m_Layer: 0
   m_Name: Shark 1
   m_TagString: Untagged
@@ -28,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 7216313106907714277}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.20000002, y: 0.2, z: 0.20000002}
+  m_LocalPosition: {x: 0, y: 0, z: 0.84}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1890507258230258695}
@@ -49,11 +52,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   fishSpeed: 2
-  chaseDistance: 5
+  chaseDistance: 3
   fishingBob: {fileID: 0}
-  fishValue: 20
+  fishValue: 50
   yaySFX: {fileID: 8300000, guid: a850fbfb89ad54ed3842d137c6322dec, type: 3}
-  timeToCatch: 1
+  timeToCatch: 3
   splashEffectPrefab: {fileID: 4891976383728537193, guid: ff1b41ede4e1f4a6fb6f17c6a985c0cb, type: 3}
   fishEyes: {fileID: 8169241670205801755}
   fieldOfView: 100
@@ -106,7 +109,79 @@ CapsuleCollider:
   m_Radius: 3
   m_Height: 15
   m_Direction: 2
-  m_Center: {x: -8, y: 8, z: 36}
+  m_Center: {x: -1, y: 8, z: 5}
+--- !u!33 &-4120713008374731541
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216313106907714277}
+  m_Mesh: {fileID: -4108424097152807243, guid: ca38d4485fce19f4aa0d3d7bdd8b6cf2, type: 3}
+--- !u!23 &2469017369000805380
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216313106907714277}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 284830dd46ce77c4696ef63853c7cf5e, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2015032391076965605
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216313106907714277}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4108424097152807243, guid: ca38d4485fce19f4aa0d3d7bdd8b6cf2, type: 3}
 --- !u!1001 &7017913310967490069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129,15 +204,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8888078906015308306, guid: c1f3e547ed57047a886b3fab043f9633, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.2651825
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8888078906015308306, guid: c1f3e547ed57047a886b3fab043f9633, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.51931
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8888078906015308306, guid: c1f3e547ed57047a886b3fab043f9633, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 36.186905
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8888078906015308306, guid: c1f3e547ed57047a886b3fab043f9633, type: 3}
       propertyPath: m_LocalRotation.w
